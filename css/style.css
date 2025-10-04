@@ -751,3 +751,492 @@ a:active,
 button:active {
   transform: scale(0.98);
 }
+
+/* Estado activo de la estrella */
+.sleep-level__star.active {
+  background: var(--color-primary);
+  border-color: var(--color-secondary);
+  animation: starRotate 0.6s ease-out;
+}
+
+.sleep-level__star.active::before {
+  color: var(--color-background);
+  text-shadow: 0 0 20px var(--color-secondary);
+}
+
+.sleep-level__star.active .star-icon {
+  fill: var(--color-background);
+  filter: drop-shadow(0 0 12px var(--color-secondary));
+}
+
+/* Animación de revelación de duración */
+.sleep-level__duration {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sleep-level__duration.revealed {
+  max-height: 100px;
+}
+
+/* Efecto de brillo en las estrellas */
+@keyframes starGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--color-primary-medium);
+  }
+  50% {
+    box-shadow: 0 0 25px var(--color-primary), 0 0 40px var(--color-primary-light);
+  }
+}
+
+.sleep-level__star.active {
+  animation: starRotate 0.6s ease-out, starGlow 2s ease-in-out infinite 0.6s;
+}
+
+/* ============================================
+   MEJORAS EN LÍNEAS CONECTORAS
+   ============================================ */
+
+/* Línea horizontal entre estrellas (si necesitas conectarlas) */
+.sleep-levels-grid::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  right: 25%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary-light),
+    transparent
+  );
+  opacity: 0.3;
+}
+
+.sleep-levels-grid::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  left: 25%;
+  right: 25%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary-light),
+    transparent
+  );
+  opacity: 0.3;
+}
+
+/* ============================================
+   MEJORAS EN GRÁFICO CIRCULAR
+   ============================================ */
+
+/* Rotación sutil del gráfico circular */
+@keyframes slowRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cycle-diagram__image {
+  animation: slowRotate 60s linear infinite;
+}
+
+/* Detener rotación al hacer hover */
+.cycle-diagram:hover .cycle-diagram__image {
+  animation-play-state: paused;
+}
+
+/* Pulso sutil en el título central */
+@keyframes centerPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+.cycle-diagram__center {
+  animation: centerPulse 4s ease-in-out infinite;
+}
+
+/* ============================================
+   EFECTOS DE SCROLL
+   ============================================ */
+
+/* Fade in al hacer scroll */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide from left */
+.slide-from-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-from-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide from right */
+.slide-from-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-from-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================
+   MEJORAS EN ACCESIBILIDAD
+   ============================================ */
+
+/* Focus visible para navegación con teclado */
+.sleep-level__star:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.sleep-level__star:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.sleep-level__star:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+/* ============================================
+   EFECTOS DE HOVER MEJORADOS
+   ============================================ */
+
+/* Efecto de elevación en las tarjetas */
+.sleep-type {
+  transition: transform var(--transition-normal);
+}
+
+.sleep-type:hover {
+  transform: translateY(-5px);
+}
+
+/* Efecto de brillo en el divisor al hover */
+.sleep-types-divider {
+  transition: all var(--transition-slow);
+}
+
+.sleep-types-grid:hover .sleep-types-divider {
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--color-primary),
+    transparent
+  );
+  box-shadow: 0 0 20px var(--color-primary-medium);
+}
+
+/* ============================================
+   LOADING STATES (Opcional)
+   ============================================ */
+
+/* Skeleton loading para imágenes */
+@keyframes skeletonLoading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-light) 0%,
+    var(--color-primary-medium) 50%,
+    var(--color-primary-light) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeletonLoading 1.5s ease-in-out infinite;
+}
+
+/* ============================================
+   MEJORAS RESPONSIVE ADICIONALES
+   ============================================ */
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+
+  .sleep-type__title {
+    font-size: 32px;
+  }
+
+  .sleep-level__title {
+    font-size: 28px;
+  }
+
+  .sleep-level__label {
+    font-size: 20px;
+  }
+
+  .cycle-diagram__title {
+    font-size: 20px;
+  }
+
+  .hero-description,
+  .section-intro,
+  .cycle-info__text,
+  .evolution-intro,
+  .evolution-caption {
+    font-size: 16px;
+  }
+}
+
+/* Para landscape en móviles */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto;
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .sleep-levels-section,
+  .sleep-cycle-section,
+  .night-evolution-section {
+    padding: var(--spacing-3xl) 0;
+  }
+}
+
+/* ============================================
+   PRINT STYLES (Por si necesitan imprimir)
+   ============================================ */
+
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  .hero-section,
+  .sleep-types-section,
+  .sleep-levels-section,
+  .sleep-cycle-section,
+  .night-evolution-section {
+    page-break-inside: avoid;
+  }
+
+  .sleep-level__star {
+    border: 2px solid black;
+  }
+
+  .interactive-cta {
+    display: none;
+  }
+}
+
+/* ============================================
+   DARK MODE (Ya lo tienes por defecto)
+   ============================================ */
+
+/* Ajustes adicionales para modo oscuro si es necesario */
+@media (prefers-color-scheme: dark) {
+  /* Ya está configurado por defecto */
+  
+  /* Aumentar contraste en modo oscuro si es necesario */
+  .sleep-type__description,
+  .hero-description,
+  .section-intro {
+    color: var(--color-secondary);
+  }
+}
+
+/* ============================================
+   ANIMACIONES ADICIONALES PARA INTERACTIVIDAD
+   ============================================ */
+
+/* Bounce suave al activar */
+@keyframes softBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.sleep-level__duration.revealed {
+  animation: softBounce 0.5s ease-out;
+}
+
+/* Efecto de ondas al hacer click */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.sleep-level__star::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--color-primary);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sleep-level__star.active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+/* ============================================
+   MEJORAS EN PERFORMANCE
+   ============================================ */
+
+/* Optimización de animaciones */
+@media (prefers-reduced-motion: no-preference) {
+  .sleep-level__star,
+  .sleep-type,
+  .cycle-diagram__image {
+    will-change: transform;
+  }
+}
+
+/* Lazy loading hint */
+.evolution-chart__image,
+.cycle-diagram__image {
+  content-visibility: auto;
+}
+
+/* ============================================
+   ESTADOS DE ERROR (Por si algo falla)
+   ============================================ */
+
+.error-state {
+  color: #ff6b6b;
+  text-align: center;
+  padding: var(--spacing-xl);
+  font-family: var(--font-accent);
+}
+
+.loading-state {
+  color: var(--color-primary);
+  text-align: center;
+  padding: var(--spacing-xl);
+  font-family: var(--font-accent);
+}
+
+/* ============================================
+   TOOLTIPS (Opcional para información adicional)
+   ============================================ */
+
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-primary);
+  color: var(--color-background);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-small);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+  z-index: var(--z-index-tooltip);
+}
+
+[data-tooltip]:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* ============================================
+   UTILIDADES ADICIONALES
+   ============================================ */
+
+/* Espaciado responsive */
+.section-spacing {
+  padding: var(--spacing-5xl) 0;
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding: var(--spacing-3xl) 0;
+  }
+}
+
+/* Contenedor con límite de ancho */
+.content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Divider decorativo */
+.decorative-divider {
+  width: 100%;
+  max-width: 200px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary),
+    transparent
+  );
+  margin: var(--spacing-xl) auto;
+}
+
+/* Énfasis de texto */
+.text-emphasis {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.text-highlight {
+  background: linear-gradient(
+    180deg,
+    transparent 60%,
+    var(--color-primary-light) 60%
+  );
+  padding: 0 4px;
+}
