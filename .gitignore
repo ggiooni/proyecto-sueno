@@ -1,1 +1,22 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
 
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependencias (si usas Node.js más adelante)
+node_modules/
+package-lock.json
+
+# Archivos temporales
+*.tmp
+*.log
+~$*
+
+# Archivos de OneDrive (opcional)
+*.tmp
+~$*.odt
