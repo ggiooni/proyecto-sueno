@@ -24,6 +24,158 @@ body {
 }
 
 /* ============================================
+   NAVBAR - BARRA DE NAVEGACIÓN
+   ============================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: var(--z-index-fixed);
+  background: rgba(26, 26, 46, 0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: all var(--transition-normal);
+}
+
+/* Navbar con scroll */
+.navbar.scrolled {
+  background: rgba(26, 26, 46, 0.95);
+  border-bottom: 1px solid var(--color-primary-light);
+  box-shadow: 0 4px 20px rgba(169, 142, 233, 0.1);
+}
+
+/* Container del navbar */
+.navbar-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--spacing-md) var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.navbar-logo {
+  font-family: var(--font-primary);
+  font-size: 32px;
+  font-weight: var(--font-weight-light);
+  font-style: var(--font-style-italic);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  position: relative;
+  z-index: var(--z-index-fixed);
+}
+
+.navbar-logo:hover {
+  color: var(--color-secondary);
+  text-shadow: 0 0 20px var(--color-primary-medium);
+  transform: scale(1.05);
+}
+
+.logo-text {
+  display: inline-block;
+}
+
+/* Menú de navegación */
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-lg);
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  margin: 0;
+}
+
+.navbar-link {
+  font-family: var(--font-accent);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-secondary);
+  text-decoration: none;
+  position: relative;
+  padding: var(--spacing-xs) 0;
+  transition: all var(--transition-normal);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Efecto de subrayado animado */
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width var(--transition-normal);
+}
+
+.navbar-link:hover {
+  color: var(--color-primary);
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+/* Link activo */
+.navbar-link.active {
+  color: var(--color-primary);
+}
+
+.navbar-link.active::after {
+  width: 100%;
+}
+
+/* Botón hamburger (mobile) */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  z-index: var(--z-index-fixed);
+  transition: all var(--transition-normal);
+}
+
+.hamburger-line {
+  width: 30px;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: all var(--transition-normal);
+}
+
+.navbar-toggle:hover .hamburger-line {
+  background: var(--color-secondary);
+  box-shadow: 0 0 10px var(--color-primary-medium);
+}
+
+/* Animación del hamburger cuando está abierto */
+.navbar-toggle.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.navbar-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* ============================================
    SECCIÓN 1: HERO - ¿POR QUÉ DORMIMOS?
    ============================================ */
 
@@ -34,6 +186,7 @@ body {
   justify-content: center;
   text-align: center;
   padding: var(--spacing-5xl) 0;
+  padding-top: 120px; /* Espacio para el navbar fijo */
   position: relative;
   overflow: hidden;
 }
@@ -626,6 +779,15 @@ body {
    ============================================ */
 
 @media (max-width: 1024px) {
+  /* Navbar responsive */
+  .navbar-menu {
+    gap: var(--spacing-md);
+  }
+
+  .navbar-link {
+    font-size: 14px;
+  }
+
   .sleep-types-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-3xl);
@@ -655,6 +817,71 @@ body {
    ============================================ */
 
 @media (max-width: 768px) {
+  /* Navbar mobile */
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background: rgba(26, 26, 46, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    gap: 0;
+    padding: 100px var(--spacing-lg) var(--spacing-3xl);
+    border-left: 1px solid var(--color-primary-light);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    transition: right var(--transition-normal);
+    overflow-y: auto;
+  }
+
+  .navbar-menu.active {
+    right: 0;
+  }
+
+  .navbar-item {
+    width: 100%;
+    text-align: left;
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--color-primary-light);
+  }
+
+  .navbar-item:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-link {
+    font-size: 18px;
+    display: block;
+    width: 100%;
+  }
+
+  .navbar-link::after {
+    display: none;
+  }
+
+  .navbar-logo {
+    font-size: 24px;
+  }
+
+  /* Overlay oscuro cuando el menú está abierto */
+  body.menu-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: calc(var(--z-index-fixed) - 1);
+    animation: fadeIn 0.3s ease-out;
+  }
+
   .hero-section {
     min-height: 80vh;
     padding: var(--spacing-3xl) 0;

@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('🌙 Proyecto Sueño - Iniciado');
 
   // Inicializar todas las funcionalidades
+  initNavbar();
   initStarInteraction();
   initScrollAnimations();
   initSmoothScroll();
@@ -18,6 +19,128 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('✅ Todas las funcionalidades cargadas');
 });
+
+// ============================================
+// 0. NAVBAR - BARRA DE NAVEGACIÓN
+// ============================================
+
+function initNavbar() {
+  const navbar = document.getElementById('navbar');
+  const navbarToggle = document.getElementById('navbar-toggle');
+  const navbarMenu = document.getElementById('navbar-menu');
+  const navbarLinks = document.querySelectorAll('.navbar-link');
+  const body = document.body;
+
+  // 1. Sticky Navbar - Cambiar estilo al hacer scroll
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    // Agregar clase 'scrolled' cuando se hace scroll
+    if (currentScrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+
+    lastScrollY = currentScrollY;
+  });
+
+  // 2. Toggle del menú hamburger (mobile)
+  if (navbarToggle && navbarMenu) {
+    navbarToggle.addEventListener('click', () => {
+      // Toggle de las clases activas
+      navbarToggle.classList.toggle('active');
+      navbarMenu.classList.toggle('active');
+      body.classList.toggle('menu-open');
+
+      // Actualizar aria-expanded para accesibilidad
+      const isExpanded = navbarToggle.classList.contains('active');
+      navbarToggle.setAttribute('aria-expanded', isExpanded);
+
+      // Prevenir scroll del body cuando el menú está abierto
+      if (isExpanded) {
+        body.style.overflow = 'hidden';
+      } else {
+        body.style.overflow = '';
+      }
+
+      console.log(`📱 Menú ${isExpanded ? 'abierto' : 'cerrado'}`);
+    });
+  }
+
+  // 3. Cerrar menú al hacer click en un link (mobile)
+  navbarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        navbarToggle.classList.remove('active');
+        navbarMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+        body.style.overflow = '';
+        navbarToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // 4. Cerrar menú al hacer click fuera del navbar (mobile)
+  document.addEventListener('click', (e) => {
+    const isClickInsideNav = navbar.contains(e.target);
+    const isMenuOpen = navbarMenu.classList.contains('active');
+
+    if (!isClickInsideNav && isMenuOpen && window.innerWidth <= 768) {
+      navbarToggle.classList.remove('active');
+      navbarMenu.classList.remove('active');
+      body.classList.remove('menu-open');
+      body.style.overflow = '';
+      navbarToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // 5. Highlight del link activo basado en la sección visible
+  const sections = document.querySelectorAll('section[id]');
+
+  function highlightActiveLink() {
+    const scrollY = window.scrollY + 100; // Offset para el navbar
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        // Remover 'active' de todos los links
+        navbarLinks.forEach(link => link.classList.remove('active'));
+
+        // Agregar 'active' al link correspondiente
+        const activeLink = document.querySelector(`.navbar-link[href="#${sectionId}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+    });
+  }
+
+  // Ejecutar al hacer scroll
+  window.addEventListener('scroll', highlightActiveLink);
+
+  // Ejecutar al cargar la página
+  highlightActiveLink();
+
+  // 6. Ajustar al redimensionar ventana
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      // Cerrar menú mobile si se redimensiona a desktop
+      navbarToggle.classList.remove('active');
+      navbarMenu.classList.remove('active');
+      body.classList.remove('menu-open');
+      body.style.overflow = '';
+      navbarToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  console.log('🧭 Navbar inicializado correctamente');
+}
 
 // ============================================
 // 1. INTERACTIVIDAD DE ESTRELLAS
@@ -145,6 +268,8 @@ function initScrollAnimations() {
 function initSmoothScroll() {
   // Seleccionar todos los links internos (si los hay)
   const internalLinks = document.querySelectorAll('a[href^="#"]');
+  const navbar = document.getElementById('navbar');
+  const navbarHeight = navbar ? navbar.offsetHeight : 0;
 
   internalLinks.forEach((link) => {
     link.addEventListener('click', function (e) {
@@ -156,10 +281,14 @@ function initSmoothScroll() {
       const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
+        // Calcular posición considerando la altura del navbar
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20;
+
         // Scroll suave al elemento
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
         });
 
         console.log(`🔗 Scroll a: ${targetId}`);
