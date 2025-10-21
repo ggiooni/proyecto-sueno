@@ -1,0 +1,604 @@
+/* ===================================
+   🌙 NEW-SECTIONS.CSS
+   Estilos para secciones nuevas de ONÍRICO
+   =================================== */
+
+/* ============================================
+   PORTADA - LOGO ONÍRICO
+   ============================================ */
+
+.portada-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: var(--color-background);
+  padding: var(--spacing-5xl) 0;
+}
+
+.onirico-logo {
+  text-align: center;
+  margin-bottom: var(--spacing-4xl);
+}
+
+.onirico-title {
+  font-family: var(--font-primary);
+  font-size: 120px;
+  font-weight: var(--font-weight-light);
+  font-style: var(--font-style-italic);
+  color: var(--color-primary);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+}
+
+.onirico-subtitle {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-light);
+  font-style: var(--font-style-italic);
+  color: var(--color-primary);
+  letter-spacing: 0.15em;
+}
+
+.portada-decorations {
+  text-align: center;
+  margin: var(--spacing-5xl) 0;
+  min-height: 300px;
+}
+
+.portada-decoration {
+  max-width: 400px;
+  opacity: 0.8;
+}
+
+.portada-welcome {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-5xl);
+  padding: 0 var(--spacing-3xl);
+}
+
+.welcome-text {
+  font-family: var(--font-accent);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-secondary);
+  letter-spacing: 0.1em;
+}
+
+/* ============================================
+   HERO - MEJORAS
+   ============================================ */
+
+.hero-quote {
+  max-width: 700px;
+  margin: var(--spacing-4xl) auto;
+  text-align: center;
+}
+
+.quote-text {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-light);
+  font-style: italic;
+  color: var(--color-primary);
+  line-height: 1.4;
+  margin-bottom: var(--spacing-lg);
+}
+
+.quote-author {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h3);
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+.hero-cta {
+  margin-top: var(--spacing-3xl);
+  font-family: var(--font-accent);
+  font-size: var(--font-size-base);
+  color: var(--color-secondary);
+}
+
+/* Ajuste para imágenes de estrellas */
+.star-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.sleep-level__star {
+  background: transparent;
+  border: none;
+}
+
+.sleep-level__star:hover {
+  background: transparent;
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* ============================================
+   LOS SUEÑOS Y LA ASTROLOGÍA
+   ============================================ */
+
+.astrology-section {
+  padding: var(--spacing-5xl) 0;
+  background: linear-gradient(180deg, var(--color-background) 0%, #2a2a3e 100%);
+  position: relative;
+}
+
+.astrology-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.astrology-text {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  font-style: italic;
+  color: var(--color-primary);
+  margin: var(--spacing-3xl) 0;
+  letter-spacing: 0.05em;
+}
+
+.astrology-illustrations {
+  min-height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   TRIVIA NOCTURNA
+   ============================================ */
+
+.trivia-section {
+  padding: var(--spacing-5xl) 0;
+  background: var(--color-background);
+}
+
+.trivia-title {
+  font-family: 'Fino Sans', 'Impact', sans-serif;
+  font-size: 100px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.trivia-subtitle {
+  font-family: var(--font-accent);
+  font-size: var(--font-size-label);
+  text-align: center;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-5xl);
+}
+
+.quiz-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-4xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.quiz-question {
+  background: rgba(169, 142, 233, 0.05);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-3xl);
+  transition: all var(--transition-normal);
+}
+
+.quiz-question:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(169, 142, 233, 0.2);
+}
+
+.quiz-question__title {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-light);
+  font-style: italic;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  line-height: 1.3;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.quiz-option {
+  font-family: var(--font-accent);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.quiz-option:hover {
+  background: var(--color-primary);
+  color: var(--color-background);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(169, 142, 233, 0.3);
+}
+
+.quiz-option:active {
+  transform: translateY(0);
+}
+
+.quiz-option:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.quiz-option.correct {
+  background: var(--color-primary);
+  color: var(--color-background);
+  border-color: var(--color-primary);
+  animation: correctPulse 0.5s ease-out;
+}
+
+.quiz-option.incorrect {
+  background: rgba(255, 107, 107, 0.2);
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+  animation: shake 0.5s ease-out;
+}
+
+@keyframes correctPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* ============================================
+   EL DIARIO DE LOS SUEÑOS
+   ============================================ */
+
+.dream-diary-section {
+  padding: var(--spacing-5xl) 0;
+  background: var(--color-background);
+}
+
+.diary-question {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-light);
+  font-style: italic;
+  color: var(--color-secondary);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+.diary-subtitle {
+  font-family: var(--font-accent);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-secondary);
+  text-align: center;
+  margin-bottom: var(--spacing-4xl);
+}
+
+.dream-form {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(169, 142, 233, 0.03);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-4xl);
+}
+
+.form-field {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.form-label {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  font-style: italic;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  color: var(--color-secondary);
+  background: var(--color-background);
+  border: 2px solid var(--color-secondary-medium);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  transition: all var(--transition-normal);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(169, 142, 233, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-submit {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  font-style: italic;
+  color: var(--color-primary);
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md) var(--spacing-3xl);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: block;
+  margin: var(--spacing-2xl) auto 0;
+}
+
+.form-submit:hover {
+  background: var(--color-primary);
+  color: var(--color-background);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(169, 142, 233, 0.4);
+}
+
+.form-submit:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   FOOTER FINAL
+   ============================================ */
+
+.site-footer-final {
+  padding: var(--spacing-5xl) 0 var(--spacing-3xl);
+  background: linear-gradient(180deg, var(--color-background) 0%, #0f0f1a 100%);
+  border-top: 2px solid var(--color-primary);
+  margin-top: var(--spacing-5xl);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-4xl);
+  margin-bottom: var(--spacing-3xl);
+  align-items: center;
+}
+
+.footer-logo h3 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-h2);
+  font-style: italic;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-logo p {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+.footer-credits-section {
+  text-align: center;
+}
+
+.footer-info {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+.footer-course {
+  font-family: var(--font-accent);
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+}
+
+.footer-social {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-lg);
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  font-size: 20px;
+}
+
+.footer-social a:hover {
+  background: var(--color-primary);
+  color: var(--color-background);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(169, 142, 233, 0.3);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-primary-light);
+}
+
+.footer-bottom p {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-small);
+  color: var(--color-secondary-medium);
+}
+
+/* ============================================
+   RESPONSIVE - TABLET
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .quiz-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3xl);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+
+  .trivia-title {
+    font-size: 70px;
+  }
+
+  .onirico-title {
+    font-size: 80px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .portada-welcome {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+
+  .onirico-title {
+    font-size: 60px;
+  }
+
+  .trivia-title {
+    font-size: 50px;
+  }
+
+  .quiz-question__title {
+    font-size: var(--font-size-h3);
+  }
+
+  .quiz-options {
+    grid-template-columns: 1fr;
+  }
+
+  .diary-question {
+    font-size: var(--font-size-h2);
+  }
+
+  .dream-form {
+    padding: var(--spacing-2xl);
+  }
+
+  .quote-text {
+    font-size: var(--font-size-label);
+  }
+
+  .quote-author {
+    font-size: var(--font-size-label);
+  }
+}
+
+/* ============================================
+   ANIMACIONES ADICIONALES
+   ============================================ */
+
+.portada-section,
+.astrology-section,
+.trivia-section,
+.dream-diary-section {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Efecto de hover en las preguntas del quiz */
+.quiz-question {
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-question::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(169, 142, 233, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.quiz-question:hover::before {
+  left: 100%;
+}
+
+/* Efecto de escritura en el título de la portada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.onirico-title {
+  animation: fadeInUp 1s ease-out;
+}
+
+.onirico-subtitle {
+  animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+.portada-welcome {
+  animation: fadeInUp 1s ease-out 0.4s backwards;
+}

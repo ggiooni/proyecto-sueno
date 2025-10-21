@@ -9,12 +9,55 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('🌙 Proyecto Sueño - Iniciado');
+// ============================================
+// NAVEGACIÓN MÓVIL
+// ============================================
 
-  // Inicializar todas las funcionalidades
+function initMobileNav() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.getElementById('mainNav');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
+      
+      console.log('🍔 Menú toggle:', !isExpanded ? 'abierto' : 'cerrado');
+    });
+
+    // Cerrar menú al hacer click en un link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          menuToggle.classList.remove('active');
+          mainNav.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // Cerrar menú al hacer scroll
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth <= 768 && mainNav.classList.contains('active')) {
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    console.log('📱 Navegación móvil activada');
+  }
+}
+// Inicializar todas las funcionalidades
   initStarInteraction();
   initScrollAnimations();
   initSmoothScroll();
   initAccessibility();
+  initMobileNav();
 
   console.log('✅ Todas las funcionalidades cargadas');
 });
@@ -263,7 +306,7 @@ function detectDevice() {
 const device = detectDevice();
 
 // ============================================
-// 7. LAZY LOADING DE IMÁGENES (Opcional)
+// 7. LAZY LOADING DE IMÁGENES
 // ============================================
 
 function initLazyLoading() {

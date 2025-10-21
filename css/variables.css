@@ -137,6 +137,13 @@
   --breakpoint-tablet: 1024px;
   --breakpoint-desktop: 1366px;
   --breakpoint-wide: 1920px;
+/* ============================================
+   NAVEGACIÓN
+   ============================================ */
+   --nav-height: 80px;
+   --nav-background: rgba(26, 26, 46, 0.95);
+   --nav-border: rgba(169, 142, 233, 0.2);
+   --nav-padding: var(--spacing-md);
 }
 
 /* ============================================

@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descubre por qué dormimos y cómo funcionan los ciclos del sueño. Una guía educativa sobre REM, NREM y las etapas del sueño.">
     <meta name="keywords" content="sueño, ciclos, REM, NREM, dormir, descanso">
-    <meta name="Abrilensia" content="Abi">
+    <meta name="author" content="Abi">
     
-    <title>¿Por qué dormimos? | El Combustible Invisible del Cuerpo</title>
+    <title>ONÍRICO | Los Misterios del Dormir</title>
     
-    <!-- Favicon (agregar después) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     
     <!-- Google Fonts -->
@@ -21,9 +21,69 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/new-sections.css">
 </head>
 
 <body>
+
+    <!-- ============================================
+     NAVEGACIÓN
+     ============================================ -->
+<header class="site-header">
+    <div class="nav-container">
+        <a href="#hero" class="site-logo">
+            <img src="assets/images/onirico.svg" alt="Onírico Logo">
+        </a>
+
+        <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-nav" id="mainNav">
+            <ul class="nav-list">
+                <li><a href="#portada" class="nav-link">Inicio</a></li>
+                <li><a href="#tipos-sueno" class="nav-link">Tipos de Sueño</a></li>
+                <li><a href="#ciclo-sueno" class="nav-link">Gráficos</a></li>
+                <li><a href="#astrologia" class="nav-link">Astrología</a></li>
+                <li><a href="#trivia" class="nav-link">Trivia</a></li>
+                <li><a href="#diario" class="nav-link">Diario de Sueños</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!-- ============================================
+     SECCIÓN PORTADA
+     ============================================ -->
+<section id="portada" class="portada-section">
+    <div class="portada-container">
+        <!-- Texto izquierda: BIENVENIDOS -->
+        <div class="portada-text portada-text--left">
+            <p>BIENVENIDOS</p>
+        </div>
+
+        <!-- Logo central ONÍRICO con estrella -->
+<div class="portada-logo">
+    <div class="portada-logo-wrapper">
+    <img src="assets/images/onirico-logo/onirico.png" alt="Onírico" class="portada-logo-main">
+    <img src="assets/images/onirico-logo/star.svg" alt="" aria-hidden="true" class="portada-logo-star">
+</div>
+</div>
+
+        <!-- Texto derecha: Y BUENAS NOCHES -->
+        <div class="portada-text portada-text--right">
+            <p>Y BUENAS NOCHES</p>
+        </div>
+
+        <!-- Subtítulo debajo del logo -->
+        <div class="portada-subtitle-wrapper">
+            <h1 class="portada-subtitle">LOS MISTERIOS DEL DORMIR</h1>
+        </div>
+
+</div>
+</section>
     <!-- ============================================
          SECCIÓN 1: HERO - ¿POR QUÉ DORMIMOS?
          ============================================ -->
@@ -33,12 +93,17 @@
             <div class="hero-divider"></div>
             <p class="hero-subtitle">EL COMBUSTIBLE INVISIBLE DEL CUERPO</p>
             
-            <!-- Texto descriptivo hero -->
-            <div class="hero-description">
-                <p>
-                    El sueño sucede en ciclos, cada ciclo está conformado por dos tipos: REM y NREM,
-                    dentro del NREM hay distintas instancias en las que varía la profundidad del sueño.
+            <!-- Cita de Platón -->
+            <div class="hero-quote">
+                <p class="quote-text">
+                    "El sueño es la cadena de oro que<br>
+                    une la salud y nuestros cuerpos."
                 </p>
+                <p class="quote-author">-Platón</p>
+            </div>
+            
+            <div class="hero-cta">
+                <p>REPOSÁ EN LA ESTRELLA</p>
             </div>
         </div>
     </section>
@@ -48,24 +113,20 @@
          ============================================ -->
     <section id="tipos-sueno" class="sleep-types-section">
         <div class="container">
-            <!-- Título principal de la sección -->
             <h2 class="section-title">LOS TIPOS DE SUEÑO</h2>
             
-            <!-- Descripción introductoria -->
             <p class="section-intro">
                 El sueño sucede en ciclos, cada ciclo está conformado por dos tipos : REM y NREM, 
                 dentro del NREM hay distintas instancias en las que varía la profundidad del sueño.
             </p>
 
-            <!-- Grid de tipos de sueño -->
             <div class="sleep-types-grid">
                 
-                <!-- Columna REM -->
                 <article class="sleep-type sleep-type--rem">
                     <h3 class="sleep-type__title">REM</h3>
                     <p class="sleep-type__subtitle">RAPID EYE MOVEMENT</p>
                     <p class="sleep-type__description">
-                        Esta etapa se caracteriza por el movimiento rapido de 
+                        Esta etapa se caracteriza por el movimiento rápido de 
                         los ojos por debajo de los párpados cerrados. Es el 
                         momento en un ciclo de sueño donde ocurren nuestros 
                         sueños más vívidos y locos ya que acá la actividad 
@@ -73,10 +134,8 @@
                     </p>
                 </article>
 
-                <!-- Divisor vertical -->
                 <div class="sleep-types-divider" aria-hidden="true"></div>
 
-                <!-- Columna NREM -->
                 <article class="sleep-type sleep-type--nrem">
                     <h3 class="sleep-type__title">NREM</h3>
                     <p class="sleep-type__subtitle">NON RAPID EYE MOVEMENT</p>
@@ -91,7 +150,6 @@
 
             </div>
 
-            <!-- Llamado a la acción interactivo -->
             <div class="interactive-cta">
                 <p class="interactive-cta__text">
                     TOCÁ LAS SIGUIENTES ESTRELLAS<br>
@@ -108,62 +166,44 @@
     <section id="niveles-sueno" class="sleep-levels-section">
         <div class="container">
             
-            <!-- Grid con las etapas del sueño -->
             <div class="sleep-levels-grid">
 
-                <!-- N1 - Somnolencia -->
                 <article class="sleep-level" data-level="n1">
                     <button class="sleep-level__star" aria-label="Revelar información sobre N1">
-                        <svg class="star-icon" aria-hidden="true">
-                            <!-- SVG de estrella -->
-                        </svg>
+                        <img src="https://www.figma.com/api/mcp/asset/e789f1d1-4242-422d-90d2-6fd2b07797dc" alt="Estrella N1" class="star-img">
                     </button>
                     <span class="sleep-level__label">N1 (NREM)</span>
                     <h4 class="sleep-level__title">Somnolencia</h4>
                     <p class="sleep-level__duration" hidden>DURACIÓN: 1-7 MIN.</p>
                 </article>
 
-                <!-- N2 - Sueño ligero -->
                 <article class="sleep-level" data-level="n2">
                     <button class="sleep-level__star" aria-label="Revelar información sobre N2">
-                        <svg class="star-icon" aria-hidden="true">
-                            <!-- SVG de estrella -->
-                        </svg>
+                        <img src="https://www.figma.com/api/mcp/asset/7d3951fd-8420-4ceb-87d8-ff2b15d12451" alt="Estrella N2" class="star-img">
                     </button>
                     <span class="sleep-level__label">N2 (NREM)</span>
                     <h4 class="sleep-level__title">Sueño ligero</h4>
                     <p class="sleep-level__duration" hidden>DURACIÓN: 10-25 MIN.</p>
                 </article>
 
-                <!-- N3 - Sueño profundo -->
                 <article class="sleep-level" data-level="n3">
                     <button class="sleep-level__star" aria-label="Revelar información sobre N3">
-                        <svg class="star-icon" aria-hidden="true">
-                            <!-- SVG de estrella -->
-                        </svg>
+                        <img src="https://www.figma.com/api/mcp/asset/6112b418-7308-4a78-9eb7-b860f87faa84" alt="Estrella N3" class="star-img">
                     </button>
                     <span class="sleep-level__label">N3 (NREM)</span>
                     <h4 class="sleep-level__title">Sueño profundo</h4>
                     <p class="sleep-level__duration" hidden>DURACIÓN: 20-40 MIN.</p>
                 </article>
 
-                <!-- REM - Etapa REM -->
                 <article class="sleep-level" data-level="rem">
                     <button class="sleep-level__star" aria-label="Revelar información sobre REM">
-                        <svg class="star-icon" aria-hidden="true">
-                            <!-- SVG de estrella -->
-                        </svg>
+                        <img src="https://www.figma.com/api/mcp/asset/7353494e-45b9-4720-b6d7-24716d426be7" alt="Estrella REM" class="star-img">
                     </button>
                     <span class="sleep-level__label">REM</span>
                     <h4 class="sleep-level__title">Etapa REM</h4>
                     <p class="sleep-level__duration" hidden>DURACIÓN: 10-60 MIN.</p>
                 </article>
 
-            </div>
-
-            <!-- Líneas conectoras (decorativas) -->
-            <div class="sleep-levels-connectors" aria-hidden="true">
-                <div class="connector connector--vertical"></div>
             </div>
 
         </div>
@@ -175,37 +215,28 @@
     <section id="ciclo-sueno" class="sleep-cycle-section">
         <div class="container">
             
-            <!-- Información del ciclo -->
             <div class="cycle-info">
                 <p class="cycle-info__text">
                     Un ciclo dura <span class="highlight">aproximadamente 90 minutos.</span><br>
-                    En un sueño de 8 horas entran al rededor de 6 ciclos
+                    En un sueño de 8 horas entran alrededor de 6 ciclos
                 </p>
                 <p class="cycle-info__cta">
                     A continuación, un ciclo para visualizar.
                 </p>
             </div>
 
-            <!-- Gráfico circular del ciclo -->
             <figure class="cycle-diagram">
                 <div class="cycle-diagram__wrapper">
-                    <!-- Aquí irá el gráfico circular SVG o imagen -->
-                    <img src="assets/images/cycle-diagram.svg" alt="Diagrama circular del ciclo del sueño" class="cycle-diagram__image">
+                    <img src="https://www.figma.com/api/mcp/asset/7a02d2cf-25df-4a10-ae1b-a4c6a2623b2a" alt="Diagrama circular del ciclo del sueño" class="cycle-diagram__image">
                     
-                    <!-- Título central del gráfico -->
                     <div class="cycle-diagram__center">
                         <h3 class="cycle-diagram__title">
                             EL<br>CICLO<br>DEL<br>SUEÑO
                         </h3>
                     </div>
 
-                    <!-- Labels alrededor del círculo -->
                     <div class="cycle-labels">
                         <span class="cycle-label cycle-label--inicio">INICIO<br>DEL CICLO</span>
-                        <span class="cycle-label cycle-label--n1">N1</span>
-                        <span class="cycle-label cycle-label--n2">N2</span>
-                        <span class="cycle-label cycle-label--n3">N3</span>
-                        <span class="cycle-label cycle-label--rem">REM</span>
                         <span class="cycle-label cycle-label--paso">PASO</span>
                     </div>
                 </div>
@@ -219,65 +250,24 @@
     </section>
 
     <!-- ============================================
-         SECCIÓN 5: EVOLUCIÓN NOCTURNA (Gráfico de Barras)
+         SECCIÓN 5: EVOLUCIÓN NOCTURNA (Gráfico)
          ============================================ -->
     <section id="evolucion-nocturna" class="night-evolution-section">
         <div class="container">
             
             <h2 class="section-title section-title--center">CICLOS DEL SUEÑO EN UNA NOCHE</h2>
             
-            <!-- Pregunta introductoria -->
             <div class="evolution-intro">
                 <p>¿Y cómo se ve esto en una noche de sueño?</p>
                 <p>De la siguiente manera...</p>
             </div>
 
-            <!-- Gráfico de evolución -->
             <figure class="evolution-chart">
-                <!-- Aquí irá el gráfico de barras/áreas SVG o imagen -->
-                <img src="assets/images/evolution-chart.svg" alt="Gráfico de evolución del sueño durante una noche de 8 horas" class="evolution-chart__image">
-                
-                <!-- Ejes y etiquetas del gráfico -->
-                <div class="chart-labels">
-                    <!-- Eje Y -->
-                    <div class="chart-axis chart-axis--y">
-                        <span>VIGILIA</span>
-                        <span>N1</span>
-                        <span>N2</span>
-                        <span>N3</span>
-                        <span>REM</span>
-                        <span class="chart-axis__title">ETAPA</span>
-                    </div>
-                    
-                    <!-- Eje X -->
-                    <div class="chart-axis chart-axis--x">
-                        <span>22:00</span>
-                        <span>23:00</span>
-                        <span>24:00</span>
-                        <span>01:00</span>
-                        <span>02:00</span>
-                        <span>03:00</span>
-                        <span>04:00</span>
-                        <span>05:00</span>
-                        <span>06:00</span>
-                        <span class="chart-axis__title">HORARIO</span>
-                    </div>
-                    
-                    <!-- Marcadores de ciclos -->
-                    <div class="chart-cycles">
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>6</span>
-                        <span class="chart-cycles__label">CICLOS</span>
-                    </div>
-                </div>
+                <img src="assets/images/evolution-chart.svg" alt="Gráfico de evolución del sueño durante una noche" class="evolution-chart__image">
 
                 <figcaption class="evolution-caption">
-                    Vemos como a medida que pasa la noche, la etapa REM ocupa cada vez mas tiempo 
-                    en el ciclo. A su vez, la etapa de sueño profundo N3 es cada vez menos frecuentes.
+                    Vemos como a medida que pasa la noche, la etapa REM ocupa cada vez más tiempo 
+                    en el ciclo. A su vez, la etapa de sueño profundo N3 es cada vez menos frecuente.
                 </figcaption>
             </figure>
 
@@ -285,22 +275,178 @@
     </section>
 
     <!-- ============================================
-         FOOTER (Opcional)
+         SECCIÓN 6: LOS SUEÑOS Y LA ASTROLOGÍA
          ============================================ -->
-    <footer class="site-footer">
+    <section id="astrologia" class="astrology-section">
         <div class="container">
-            <p class="footer-text">
-                Proyecto educativo sobre el sueño y sus ciclos
+            <h2 class="section-title section-title--center">
+                LOS SUEÑOS Y<br>LA ASTROLOGÍA
+            </h2>
+            
+            <div class="astrology-content">
+                <div class="astrology-illustrations">
+                    <!-- Ilustraciones de constelaciones -->
+                </div>
+                
+                <p class="astrology-text">EL LENGUAJE ASTRAL DEL DORMIR</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN 7: TRIVIA NOCTURNA
+         ============================================ -->
+    <section id="trivia" class="trivia-section">
+        <div class="container">
+            <h2 class="trivia-title">TRIVIA NOCTURNA</h2>
+            <p class="trivia-subtitle">
+                PONÉ TU CONOCIMIENTO SOBRE EL SUEÑO A PRUEBA CON ESTE QUIZ
             </p>
-            <p class="footer-credits">
-                Diseño: Abrilensia | Desarrollo: Nicolas
-            </p>
+            
+            <div class="quiz-grid">
+                
+                <article class="quiz-question">
+                    <h3 class="quiz-question__title">
+                        ¿En qué país se duerme<br>
+                        menos en promedio?
+                    </h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false">PARAGUAY</button>
+                        <button class="quiz-option" data-correct="true">JAPÓN</button>
+                        <button class="quiz-option" data-correct="false">DINAMARCA</button>
+                        <button class="quiz-option" data-correct="false">CANADÁ</button>
+                    </div>
+                </article>
+
+                <article class="quiz-question">
+                    <h3 class="quiz-question__title">
+                        ¿Cuál es el record de permanecer<br>
+                        más tiempo despierto?
+                    </h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false">4 DÍAS</button>
+                        <button class="quiz-option" data-correct="false">18 DÍAS</button>
+                        <button class="quiz-option" data-correct="true">11 DÍAS</button>
+                        <button class="quiz-option" data-correct="false">7 DÍAS</button>
+                    </div>
+                </article>
+
+                <article class="quiz-question">
+                    <h3 class="quiz-question__title">
+                        ¿Qué etapa de sueño es más<br>
+                        reparadora físicamente?
+                    </h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false">N1</button>
+                        <button class="quiz-option" data-correct="false">N2</button>
+                        <button class="quiz-option" data-correct="true">N3</button>
+                        <button class="quiz-option" data-correct="false">REM</button>
+                    </div>
+                </article>
+
+                <article class="quiz-question">
+                    <h3 class="quiz-question__title">
+                        ¿En qué lugar del mundo la<br>
+                        gente empieza el día antes?
+                    </h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" data-correct="false">BOLIVIA</button>
+                        <button class="quiz-option" data-correct="true">COREA</button>
+                        <button class="quiz-option" data-correct="false">SUDÁFRICA</button>
+                        <button class="quiz-option" data-correct="false">CROACIA</button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN 8: EL DIARIO DE LOS SUEÑOS
+         ============================================ -->
+    <section id="diario" class="dream-diary-section">
+        <div class="container">
+            <h2 class="diary-question">¿Tenés algún sueño recurrente?</h2>
+            <p class="diary-subtitle">EL DIARIO DE LOS SUEÑOS</p>
+            
+            <form class="dream-form" id="dreamForm">
+                <div class="form-field">
+                    <label for="nombre" class="form-label">NOMBRE</label>
+                    <input 
+                        type="text" 
+                        id="nombre" 
+                        name="nombre" 
+                        class="form-input"
+                        placeholder="Tu nombre"
+                        required
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="email" class="form-label">MAIL</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-input"
+                        placeholder="tu@email.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="respuesta" class="form-label">RESPUESTA</label>
+                    <textarea 
+                        id="respuesta" 
+                        name="respuesta" 
+                        class="form-textarea"
+                        placeholder="Contanos sobre tus sueños recurrentes..."
+                        rows="5"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">ENVIAR</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER FINAL
+         ============================================ -->
+    <footer class="site-footer-final">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <h3>ONÍRICO</h3>
+                    <p>LOS MISTERIOS DEL DORMIR</p>
+                </div>
+                
+                <div class="footer-credits-section">
+                    <p class="footer-info">
+                        ONIRICO© está basado en datos extraídos<br>
+                        del especialista en sueño Matt Walker.
+                    </p>
+                    <p class="footer-course">
+                        TP5 - TIPOGRAFÍA II - CÁTEDRA COSGAYA
+                    </p>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Diseño: Abrilensia | Desarrollo: Nicolas © 2025</p>
+            </div>
         </div>
     </footer>
 
-    <!-- ============================================
-         JAVASCRIPT
-         ============================================ -->
+    <!-- JavaScript -->
     <script src="js/main.js"></script>
+    <script src="js/quiz.js"></script>
 </body>
 </html>

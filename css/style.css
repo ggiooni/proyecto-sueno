@@ -3,6 +3,122 @@
    =================================== */
 
 /* ============================================
+   NAVEGACIÓN
+   ============================================ */
+
+.site-header {
+  background-color: #0A0031; /* Color azul oscuro de Figma */
+  padding: var(--nav-padding) 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: var(--z-index-fixed);
+  backdrop-filter: blur(10px);
+}
+
+.nav-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--container-padding);
+}
+
+.site-logo {
+  width: 140px;
+  height: auto;
+  transition: transform var(--transition-normal);
+}
+
+.site-logo:hover {
+  transform: scale(1.05);
+}
+
+.site-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.nav-list li {
+  position: relative;
+}
+
+.nav-link {
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color var(--transition-normal);
+  position: relative;
+  padding: var(--spacing-sm) 0;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), transparent);
+  transition: width var(--transition-normal);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Menu toggle para móvil */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  background: none;
+  border: none;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background-color: var(--color-secondary);
+  transition: all var(--transition-normal);
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+
+/* ============================================
    BASE - Estilos Globales
    ============================================ */
 
@@ -15,7 +131,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Container principal */
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
@@ -24,7 +139,154 @@ body {
 }
 
 /* ============================================
-   SECCIÓN 1: HERO - ¿POR QUÉ DORMIMOS?
+   SECCIÓN PORTADA
+   ============================================ */
+
+.portada-section {
+  min-height: 120vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+  padding-top: calc(var(--nav-height) + var(--spacing-2xl));
+  padding-bottom: var(--spacing-5xl); /* Aumenta esto si es necesario */
+  background-color: #1a1a3e;
+}
+
+.portada-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: 0;
+  
+  /* Degradado más largo y gradual */
+  background: linear-gradient(
+    180deg,
+    #0A0031 0%,
+    #0A0031 15%,
+    #0D0437 25%,
+    #160945 33%,
+    #21144B 40%,
+    #2D1F5A 47%,
+    #3C2D6B 54%,
+    #4F3E7F 60%,
+    #634F98 67%,
+    #7A62AC 72%,
+    #947BD1 78%,
+    #A98EE9 84%,
+    #B89CE0 89%,
+    #C8B0DB 92%,
+    #D5C2D0 94%,
+    #DBD4B9 96%,
+    #e8dcc4 100%
+  );
+  
+  pointer-events: none;
+}
+
+.portada-section::after {
+  display: none;
+}
+
+.portada-container {
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  grid-template-rows: auto auto;
+  gap: var(--spacing-xl);
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-2xl);
+  position: relative;
+  z-index: 1;
+}
+
+.portada-text {
+  font-family: var(--font-accent);
+  font-size: 20px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-secondary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.9;
+  align-self: center;
+}
+
+.portada-text--left {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+  justify-self: start;
+}
+
+.portada-text--right {
+  grid-column: 3;
+  grid-row: 1;
+  text-align: right;
+  justify-self: end;
+}
+
+.portada-logo-main {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 30px rgba(169, 142, 233, 0.3));
+}
+
+.portada-logo-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: floatLogo 6s ease-in-out infinite; /* Mover animación aquí */
+}
+
+.portada-logo-star {
+  position: absolute;
+  width: 13.5%;          
+  height: auto;
+  top: 50%;            
+  left: 89%;           
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0 15px rgba(169, 142, 233, 0.6));
+  animation: rotateStar 20s linear infinite;
+}
+
+.portada-logo-main {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 30px rgba(169, 142, 233, 0.3));
+}
+
+.portada-subtitle-wrapper {
+  grid-column: 1 / 4;
+  grid-row: 2;
+  text-align: center;
+  margin-top: var(--spacing-xl); /* Agrega más espacio arriba */
+}
+
+.portada-subtitle {
+  font-family: var(--font-primary);
+  font-size: 36px;
+  font-weight: var(--font-weight-light);
+  font-style: var(--font-style-italic);
+  color: var(--color-primary);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: var(--line-height-tight);
+  text-shadow: 0 4px 20px rgba(169, 142, 233, 0.4);
+  animation: fadeInUp 1s ease-out 0.5s backwards;
+}
+
+/* ============================================
+   SECCIÓN HERO - ¿POR QUÉ DORMIMOS?
    ============================================ */
 
 .hero-section {
@@ -33,9 +295,33 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: var(--spacing-5xl) 0;
   position: relative;
+  background-color: #e8dcc4;
+  padding: var(--spacing-5xl) 0;
   overflow: hidden;
+}
+
+/* Degradado pequeño superior */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(
+    180deg,
+    #e8dcc4 0%,
+    #DBD4B9 30%,
+    #C8B0DB 60%,
+    #B89CE0 100%
+  );
+  z-index: 0;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-title {
@@ -81,12 +367,33 @@ body {
 }
 
 /* ============================================
-   SECCIÓN 2: TIPOS DE SUEÑO (REM vs NREM)
+   SECCIÓN TIPOS DE SUEÑO (REM vs NREM)
    ============================================ */
 
 .sleep-types-section {
   padding: var(--spacing-5xl) 0;
   position: relative;
+  background-color: #1a1a3e;
+  overflow: hidden;
+}
+
+/* Curva superior para transición desde beige */
+.sleep-types-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: #1a1a3e;
+  border-radius: 0 0 50% 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.sleep-types-section .container {
+  position: relative;
+  z-index: 2;
 }
 
 .section-title {
@@ -109,7 +416,6 @@ body {
   color: var(--color-secondary);
 }
 
-/* Grid REM vs NREM */
 .sleep-types-grid {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -120,6 +426,11 @@ body {
 
 .sleep-type {
   text-align: center;
+  transition: transform var(--transition-normal);
+}
+
+.sleep-type:hover {
+  transform: translateY(-5px);
 }
 
 .sleep-type__title {
@@ -150,7 +461,6 @@ body {
   margin: 0 auto;
 }
 
-/* Divisor vertical */
 .sleep-types-divider {
   width: 2px;
   height: 400px;
@@ -161,9 +471,19 @@ body {
     transparent
   );
   align-self: center;
+  transition: all var(--transition-slow);
 }
 
-/* Llamado a la acción interactivo */
+.sleep-types-grid:hover .sleep-types-divider {
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--color-primary),
+    transparent
+  );
+  box-shadow: 0 0 20px var(--color-primary-medium);
+}
+
 .interactive-cta {
   text-align: center;
   margin: var(--spacing-3xl) 0;
@@ -179,7 +499,7 @@ body {
 }
 
 /* ============================================
-   SECCIÓN 3: NIVELES DEL SUEÑO (Interactiva)
+   SECCIÓN NIVELES DEL SUEÑO (Interactiva)
    ============================================ */
 
 .sleep-levels-section {
@@ -196,6 +516,38 @@ body {
   position: relative;
 }
 
+.sleep-levels-grid::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  right: 25%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary-light),
+    transparent
+  );
+  opacity: 0.3;
+}
+
+.sleep-levels-grid::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  left: 25%;
+  right: 25%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary-light),
+    transparent
+  );
+  opacity: 0.3;
+}
+
 .sleep-level {
   display: flex;
   flex-direction: column;
@@ -204,7 +556,6 @@ body {
   position: relative;
 }
 
-/* Botón estrella */
 .sleep-level__star {
   width: 70px;
   height: 70px;
@@ -230,7 +581,26 @@ body {
   transform: scale(0.95);
 }
 
-/* Icono estrella (usando pseudo-elemento como placeholder) */
+.sleep-level__star.active {
+  background: var(--color-primary);
+  border-color: var(--color-secondary);
+  animation: starRotate 0.6s ease-out, starGlow 2s ease-in-out infinite 0.6s;
+}
+
+.sleep-level__star:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.sleep-level__star:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.sleep-level__star:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
 .star-icon {
   width: 40px;
   height: 40px;
@@ -243,7 +613,11 @@ body {
   filter: drop-shadow(0 0 8px var(--color-primary));
 }
 
-/* Placeholder para estrella con CSS (temporal hasta tener SVG) */
+.sleep-level__star.active .star-icon {
+  fill: var(--color-background);
+  filter: drop-shadow(0 0 12px var(--color-secondary));
+}
+
 .sleep-level__star::before {
   content: '★';
   font-size: 40px;
@@ -257,7 +631,25 @@ body {
   text-shadow: 0 0 15px var(--color-primary);
 }
 
-/* Labels y títulos */
+.sleep-level__star.active::before {
+  color: var(--color-background);
+  text-shadow: 0 0 20px var(--color-secondary);
+}
+
+.sleep-level__star::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--color-primary);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sleep-level__star.active::after {
+  animation: ripple 0.6s ease-out;
+}
+
 .sleep-level__label {
   font-family: var(--font-accent);
   font-size: var(--font-size-label);
@@ -282,18 +674,20 @@ body {
   font-weight: var(--font-weight-medium);
   color: var(--color-secondary);
   opacity: 0;
+  max-height: 0;
+  overflow: hidden;
   transform: translateY(-10px);
-  transition: all var(--transition-normal);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Cuando se revela la duración */
 .sleep-level__duration.revealed,
 .sleep-level__star.active ~ .sleep-level__duration {
   opacity: 1;
+  max-height: 100px;
   transform: translateY(0);
+  animation: softBounce 0.5s ease-out;
 }
 
-/* Líneas conectoras decorativas */
 .sleep-levels-connectors {
   position: absolute;
   top: 50%;
@@ -317,7 +711,7 @@ body {
 }
 
 /* ============================================
-   SECCIÓN 4: CICLO DEL SUEÑO (Gráfico Circular)
+   SECCIÓN CICLO DEL SUEÑO (Gráfico Circular)
    ============================================ */
 
 .sleep-cycle-section {
@@ -347,7 +741,6 @@ body {
   color: var(--color-secondary);
 }
 
-/* Diagrama circular */
 .cycle-diagram {
   max-width: 900px;
   margin: 0 auto;
@@ -366,9 +759,13 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  animation: slowRotate 60s linear infinite;
 }
 
-/* Título central del círculo */
+.cycle-diagram:hover .cycle-diagram__image {
+  animation-play-state: paused;
+}
+
 .cycle-diagram__center {
   position: absolute;
   top: 50%;
@@ -386,6 +783,7 @@ body {
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  animation: centerPulse 4s ease-in-out infinite;
 }
 
 .cycle-diagram__title {
@@ -398,7 +796,6 @@ body {
   text-align: center;
 }
 
-/* Labels alrededor del círculo */
 .cycle-labels {
   position: absolute;
   inset: 0;
@@ -416,7 +813,6 @@ body {
   text-align: center;
 }
 
-/* Posiciones específicas de cada label (ajustar según diseño) */
 .cycle-label--inicio {
   top: 50%;
   left: 10%;
@@ -453,7 +849,7 @@ body {
 }
 
 /* ============================================
-   SECCIÓN 5: EVOLUCIÓN NOCTURNA (Gráfico)
+   SECCIÓN EVOLUCIÓN NOCTURNA (Gráfico)
    ============================================ */
 
 .night-evolution-section {
@@ -476,7 +872,6 @@ body {
   margin-bottom: var(--spacing-sm);
 }
 
-/* Gráfico de evolución */
 .evolution-chart {
   max-width: 1200px;
   margin: 0 auto;
@@ -487,9 +882,9 @@ body {
   width: 100%;
   height: auto;
   display: block;
+  content-visibility: auto;
 }
 
-/* Labels del gráfico */
 .chart-labels {
   position: absolute;
   inset: 0;
@@ -584,7 +979,6 @@ body {
    ANIMACIONES Y TRANSICIONES
    ============================================ */
 
-/* Fade in suave al cargar */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -596,15 +990,35 @@ body {
   }
 }
 
-.hero-section,
-.sleep-types-section,
-.sleep-levels-section,
-.sleep-cycle-section,
-.night-evolution-section {
-  animation: fadeIn 0.8s ease-out;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Rotación de estrella al activar */
+@keyframes floatLogo {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes rotateStar {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
 @keyframes starRotate {
   0% {
     transform: rotate(0deg) scale(1);
@@ -617,8 +1031,369 @@ body {
   }
 }
 
-.sleep-level__star.active {
-  animation: starRotate 0.6s ease-out;
+@keyframes starGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--color-primary-medium);
+  }
+  50% {
+    box-shadow: 0 0 25px var(--color-primary), 0 0 40px var(--color-primary-light);
+  }
+}
+
+@keyframes softBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes slowRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes centerPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@keyframes skeletonLoading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.hero-section,
+.sleep-types-section,
+.sleep-levels-section,
+.sleep-cycle-section,
+.night-evolution-section {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.portada-text,
+.portada-logo {
+  animation: fadeInUp 1s ease-out backwards;
+}
+
+.portada-text--left {
+  animation-delay: 0.2s;
+}
+
+.portada-logo {
+  animation-delay: 0.4s;
+}
+
+.portada-text--right {
+  animation-delay: 0.6s;
+}
+
+/* ============================================
+   EFECTOS DE SCROLL
+   ============================================ */
+
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-from-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-from-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-from-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-from-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+
+.text-center {
+  text-align: center;
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-light) 0%,
+    var(--color-primary-medium) 50%,
+    var(--color-primary-light) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeletonLoading 1.5s ease-in-out infinite;
+}
+
+.error-state {
+  color: #ff6b6b;
+  text-align: center;
+  padding: var(--spacing-xl);
+  font-family: var(--font-accent);
+}
+
+.loading-state {
+  color: var(--color-primary);
+  text-align: center;
+  padding: var(--spacing-xl);
+  font-family: var(--font-accent);
+}
+
+.section-spacing {
+  padding: var(--spacing-5xl) 0;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.decorative-divider {
+  width: 100%;
+  max-width: 200px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary),
+    transparent
+  );
+  margin: var(--spacing-xl) auto;
+}
+
+.text-emphasis {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.text-highlight {
+  background: linear-gradient(
+    180deg,
+    transparent 60%,
+    var(--color-primary-light) 60%
+  );
+  padding: 0 4px;
+}
+
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-primary);
+  color: var(--color-background);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-small);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+  z-index: var(--z-index-tooltip);
+}
+
+[data-tooltip]:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+a,
+button {
+  transition: all var(--transition-normal);
+}
+
+a:hover,
+button:hover {
+  opacity: 0.8;
+}
+
+a:active,
+button:active {
+  transform: scale(0.98);
+}
+
+/* ============================================
+   RESPONSIVE - NAVEGACIÓN
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .nav-list {
+    gap: var(--spacing-lg);
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--nav-background);
+    border-bottom: 1px solid var(--nav-border);
+    padding: var(--spacing-xl) 0;
+    display: none;
+  }
+
+  .main-nav.active {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: 0 var(--container-padding);
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-md) 0;
+  }
+
+  .site-logo {
+    width: 100px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - PORTADA
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .portada-logo {
+    max-width: 550px;
+  }
+
+  .portada-subtitle {
+    font-size: var(--font-size-body);
+  }
+
+  .portada-text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portada-section {
+    padding-top: calc(var(--nav-height) + var(--spacing-xl));
+  }
+
+  .portada-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: var(--spacing-lg);
+    text-align: center;
+  }
+
+  .portada-text--left,
+  .portada-text--right {
+    grid-column: 1;
+    text-align: center;
+    justify-self: center;
+  }
+
+  .portada-text--left {
+    grid-row: 1;
+  }
+
+  .portada-logo {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: 350px;
+  }
+
+  .portada-text--right {
+    grid-row: 3;
+  }
+
+  .portada-subtitle-wrapper {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .portada-subtitle {
+    font-size: var(--font-size-base);
+    letter-spacing: 2px;
+  }
+
+  .portada-text {
+    font-size: 13px;
+  }
 }
 
 /* ============================================
@@ -658,6 +1433,7 @@ body {
   .hero-section {
     min-height: 80vh;
     padding: var(--spacing-3xl) 0;
+    padding-top: calc(70px + var(--spacing-3xl));
   }
 
   .hero-title {
@@ -710,283 +1486,16 @@ body {
   .chart-cycles {
     font-size: 16px;
   }
-}
 
-/* ============================================
-   UTILIDADES
-   ============================================ */
-
-.text-center {
-  text-align: center;
-}
-
-.mt-lg {
-  margin-top: var(--spacing-lg);
-}
-
-.mb-lg {
-  margin-bottom: var(--spacing-lg);
-}
-
-.hidden {
-  display: none;
-}
-
-.visible {
-  display: block;
-}
-
-/* Efecto de hover suave general */
-a,
-button {
-  transition: all var(--transition-normal);
-}
-
-a:hover,
-button:hover {
-  opacity: 0.8;
-}
-
-a:active,
-button:active {
-  transform: scale(0.98);
-}
-
-/* Estado activo de la estrella */
-.sleep-level__star.active {
-  background: var(--color-primary);
-  border-color: var(--color-secondary);
-  animation: starRotate 0.6s ease-out;
-}
-
-.sleep-level__star.active::before {
-  color: var(--color-background);
-  text-shadow: 0 0 20px var(--color-secondary);
-}
-
-.sleep-level__star.active .star-icon {
-  fill: var(--color-background);
-  filter: drop-shadow(0 0 12px var(--color-secondary));
-}
-
-/* Animación de revelación de duración */
-.sleep-level__duration {
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.sleep-level__duration.revealed {
-  max-height: 100px;
-}
-
-/* Efecto de brillo en las estrellas */
-@keyframes starGlow {
-  0%, 100% {
-    box-shadow: 0 0 10px var(--color-primary-medium);
-  }
-  50% {
-    box-shadow: 0 0 25px var(--color-primary), 0 0 40px var(--color-primary-light);
+  .section-spacing {
+    padding: var(--spacing-3xl) 0;
   }
 }
 
-.sleep-level__star.active {
-  animation: starRotate 0.6s ease-out, starGlow 2s ease-in-out infinite 0.6s;
-}
-
 /* ============================================
-   MEJORAS EN LÍNEAS CONECTORAS
+   RESPONSIVE - PANTALLAS MUY PEQUEÑAS
    ============================================ */
 
-/* Línea horizontal entre estrellas (si necesitas conectarlas) */
-.sleep-levels-grid::before {
-  content: '';
-  position: absolute;
-  top: 15%;
-  left: 25%;
-  right: 25%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-primary-light),
-    transparent
-  );
-  opacity: 0.3;
-}
-
-.sleep-levels-grid::after {
-  content: '';
-  position: absolute;
-  bottom: 15%;
-  left: 25%;
-  right: 25%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-primary-light),
-    transparent
-  );
-  opacity: 0.3;
-}
-
-/* ============================================
-   MEJORAS EN GRÁFICO CIRCULAR
-   ============================================ */
-
-/* Rotación sutil del gráfico circular */
-@keyframes slowRotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.cycle-diagram__image {
-  animation: slowRotate 60s linear infinite;
-}
-
-/* Detener rotación al hacer hover */
-.cycle-diagram:hover .cycle-diagram__image {
-  animation-play-state: paused;
-}
-
-/* Pulso sutil en el título central */
-@keyframes centerPulse {
-  0%, 100% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1.05);
-  }
-}
-
-.cycle-diagram__center {
-  animation: centerPulse 4s ease-in-out infinite;
-}
-
-/* ============================================
-   EFECTOS DE SCROLL
-   ============================================ */
-
-/* Fade in al hacer scroll */
-.fade-in-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Slide from left */
-.slide-from-left {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.slide-from-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Slide from right */
-.slide-from-right {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.slide-from-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* ============================================
-   MEJORAS EN ACCESIBILIDAD
-   ============================================ */
-
-/* Focus visible para navegación con teclado */
-.sleep-level__star:focus {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 4px;
-}
-
-.sleep-level__star:focus:not(:focus-visible) {
-  outline: none;
-}
-
-.sleep-level__star:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 4px;
-}
-
-/* ============================================
-   EFECTOS DE HOVER MEJORADOS
-   ============================================ */
-
-/* Efecto de elevación en las tarjetas */
-.sleep-type {
-  transition: transform var(--transition-normal);
-}
-
-.sleep-type:hover {
-  transform: translateY(-5px);
-}
-
-/* Efecto de brillo en el divisor al hover */
-.sleep-types-divider {
-  transition: all var(--transition-slow);
-}
-
-.sleep-types-grid:hover .sleep-types-divider {
-  background: linear-gradient(
-    180deg,
-    transparent,
-    var(--color-primary),
-    transparent
-  );
-  box-shadow: 0 0 20px var(--color-primary-medium);
-}
-
-/* ============================================
-   LOADING STATES (Opcional)
-   ============================================ */
-
-/* Skeleton loading para imágenes */
-@keyframes skeletonLoading {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.skeleton {
-  background: linear-gradient(
-    90deg,
-    var(--color-primary-light) 0%,
-    var(--color-primary-medium) 50%,
-    var(--color-primary-light) 100%
-  );
-  background-size: 200% 100%;
-  animation: skeletonLoading 1.5s ease-in-out infinite;
-}
-
-/* ============================================
-   MEJORAS RESPONSIVE ADICIONALES
-   ============================================ */
-
-/* Para pantallas muy pequeñas */
 @media (max-width: 480px) {
   .hero-title {
     font-size: 40px;
@@ -1021,9 +1530,13 @@ button:active {
   }
 }
 
-/* Para landscape en móviles */
+/* ============================================
+   RESPONSIVE - LANDSCAPE EN MÓVILES
+   ============================================ */
+
 @media (max-height: 600px) and (orientation: landscape) {
-  .hero-section {
+  .hero-section,
+  .portada-section {
     min-height: auto;
     padding: var(--spacing-2xl) 0;
   }
@@ -1036,7 +1549,24 @@ button:active {
 }
 
 /* ============================================
-   PRINT STYLES (Por si necesitan imprimir)
+   OPTIMIZACIÓN DE PERFORMANCE
+   ============================================ */
+
+@media (prefers-reduced-motion: no-preference) {
+  .sleep-level__star,
+  .sleep-type,
+  .cycle-diagram__image {
+    will-change: transform;
+  }
+}
+
+.evolution-chart__image,
+.cycle-diagram__image {
+  content-visibility: auto;
+}
+
+/* ============================================
+   PRINT STYLES
    ============================================ */
 
 @media print {
@@ -1063,180 +1593,13 @@ button:active {
 }
 
 /* ============================================
-   DARK MODE (Ya lo tienes por defecto)
+   DARK MODE
    ============================================ */
 
-/* Ajustes adicionales para modo oscuro si es necesario */
 @media (prefers-color-scheme: dark) {
-  /* Ya está configurado por defecto */
-  
-  /* Aumentar contraste en modo oscuro si es necesario */
   .sleep-type__description,
   .hero-description,
   .section-intro {
     color: var(--color-secondary);
   }
-}
-
-/* ============================================
-   ANIMACIONES ADICIONALES PARA INTERACTIVIDAD
-   ============================================ */
-
-/* Bounce suave al activar */
-@keyframes softBounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.sleep-level__duration.revealed {
-  animation: softBounce 0.5s ease-out;
-}
-
-/* Efecto de ondas al hacer click */
-@keyframes ripple {
-  0% {
-    transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-.sleep-level__star::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: var(--color-primary);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.sleep-level__star.active::after {
-  animation: ripple 0.6s ease-out;
-}
-
-/* ============================================
-   MEJORAS EN PERFORMANCE
-   ============================================ */
-
-/* Optimización de animaciones */
-@media (prefers-reduced-motion: no-preference) {
-  .sleep-level__star,
-  .sleep-type,
-  .cycle-diagram__image {
-    will-change: transform;
-  }
-}
-
-/* Lazy loading hint */
-.evolution-chart__image,
-.cycle-diagram__image {
-  content-visibility: auto;
-}
-
-/* ============================================
-   ESTADOS DE ERROR (Por si algo falla)
-   ============================================ */
-
-.error-state {
-  color: #ff6b6b;
-  text-align: center;
-  padding: var(--spacing-xl);
-  font-family: var(--font-accent);
-}
-
-.loading-state {
-  color: var(--color-primary);
-  text-align: center;
-  padding: var(--spacing-xl);
-  font-family: var(--font-accent);
-}
-
-/* ============================================
-   TOOLTIPS (Opcional para información adicional)
-   ============================================ */
-
-[data-tooltip] {
-  position: relative;
-  cursor: help;
-}
-
-[data-tooltip]::before {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-8px);
-  padding: var(--spacing-sm) var(--spacing-md);
-  background: var(--color-primary);
-  color: var(--color-background);
-  border-radius: var(--border-radius-md);
-  font-size: var(--font-size-small);
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition-normal), transform var(--transition-normal);
-  z-index: var(--z-index-tooltip);
-}
-
-[data-tooltip]:hover::before {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-4px);
-}
-
-/* ============================================
-   UTILIDADES ADICIONALES
-   ============================================ */
-
-/* Espaciado responsive */
-.section-spacing {
-  padding: var(--spacing-5xl) 0;
-}
-
-@media (max-width: 768px) {
-  .section-spacing {
-    padding: var(--spacing-3xl) 0;
-  }
-}
-
-/* Contenedor con límite de ancho */
-.content-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* Divider decorativo */
-.decorative-divider {
-  width: 100%;
-  max-width: 200px;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-primary),
-    transparent
-  );
-  margin: var(--spacing-xl) auto;
-}
-
-/* Énfasis de texto */
-.text-emphasis {
-  color: var(--color-primary);
-  font-weight: var(--font-weight-medium);
-}
-
-.text-highlight {
-  background: linear-gradient(
-    180deg,
-    transparent 60%,
-    var(--color-primary-light) 60%
-  );
-  padding: 0 4px;
 }
