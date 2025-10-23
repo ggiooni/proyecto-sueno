@@ -437,7 +437,7 @@ body {
 .quote-ellipse {
   width: 100%;
   height: auto;
-  max-width: 800px;  /
+  max-width: 800px;
   max-height: 200px;
   opacity: 0;
   transform: translateY(20px);
