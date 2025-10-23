@@ -283,23 +283,7 @@ body {
   position: relative;
   background-color: #DBD4B9;
   padding: var(--spacing-3xl) 0;
-  overflow: hidden;
-}
-
-.hero-section::before {
-  display: none; 
-}
-
-.hero-section::after {
-content: '';
-position: absolute;
-bottom: -1px;
-left: 0;
-width: 100%;
-height: 150px;
-background: #0A0031;
-border-radius: 50% 50% 0 0 / 30px 30px 0 0;
-z-index: 1;
+  overflow: visible;
 }
 
 .hero-section .container {
@@ -398,39 +382,62 @@ z-index: 1;
 .hero-quote {
   margin: var(--spacing-3xl) auto 0;
   padding: var(--spacing-lg);
-  background: transparent;
+  padding-bottom: 80px; 
+  background: transparent; 
   max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: left;
-  border: none;
+  border: none; 
   position: relative;
-  padding-bottom: 150px;  /* Espacio para ondas inferiores */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 2;
+  overflow: visible;
+}
+.hero-quote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 80px;
+  background: #DBD4B9;
+  z-index: -2;
+}
+.hero-quote::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: #DBD4B9;
+  clip-path: ellipse(60% 100% at 50% 0%);
+  z-index: -1;
 }
 
 .hero-quote p {
   font-family: var(--font-fraunces);
-  font-size: 54px;
-  font-style: italic;
+  font-size: 60px;
+  font-style: bold italic;
   line-height: 0.9;
   color: #36248B;
   margin: 0 0 var(--spacing-sm) 0;
-  transform: translateX(350px);  /* Inclinar a la izquierda */
+  transform: translateX(350px);  
 }
 
 .hero-quote cite {
   font-family: var(--font-fraunces);
-  font-size: 44px;
-  font-style: italic;
+  font-size: 48px;
+  font-style: bold;
   color: #36248B;
   display: block;
-  transform: translateX(830px);  /* Inclinar a la izquierda */
+  transform: translateX(919px);  
 }
+
 .quote-ellipse {
   width: 100%;
   height: auto;
-  max-width: 800px;  /* Ajusta para el ancho de la elipse */
+  max-width: 800px;  /
   max-height: 200px;
   opacity: 0;
   transform: translateY(20px);
@@ -608,253 +615,197 @@ z-index: 1;
    ============================================ */
 
 .sleep-types-section {
-  padding: var(--spacing-5xl) 0;
+  padding: 100px 0 120px;
   position: relative;
-  background-color: #1a1a3e;
-  overflow: hidden;
-}
-
-.sleep-types-section::before {
-  content: '';
-  position: absolute;
-  top: -50px;  /* Posición sobre la cita */
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: #DBD4B9;  /* Fondo beige como en la imagen */
-  border-radius: 50% 50% 0 0;  /* Curva superior elíptica */
-  transform: translateY(-50%);
-  z-index: -1;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);  /* Sombra interna para profundidad */
-}
-.sleep-type-section::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 150px;
-  background: #0A0031;  /* Azul oscuro como borde inferior */
-  border-radius: 50% 50% 0 0 / 30px 30px 0 0;  /* Elipse horizontal suave */
-  z-index: 1;
+  background-color: #0A0031; /* ⭐ Fondo azul oscuro según diseño */
+  overflow: visible;
+  margin-top: 0;
 }
 
 .sleep-types-section .container {
   position: relative;
   z-index: 2;
-}
-
-.section-title {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-hero);
-  font-weight: var(--font-weight-light);
-  font-style: var(--font-style-italic);
-  color: var(--color-primary);
-  text-align: center;
-  margin-bottom: var(--spacing-xl);
-  line-height: var(--line-height-tight);
-}
-
-.section-intro {
-  text-align: center;
-  max-width: 820px;
-  margin: 0 auto var(--spacing-5xl);
-  font-size: var(--font-size-body);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-secondary);
-}
-
-.sleep-types-grid {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: var(--spacing-3xl);
-  align-items: start;
-  margin-bottom: var(--spacing-5xl);
-}
-
-.sleep-type {
-  text-align: center;
-  transition: transform var(--transition-normal);
-}
-
-.sleep-type:hover {
-  transform: translateY(-5px);
-}
-
-.sleep-type__title {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-h1);
-  font-weight: var(--font-weight-light);
-  font-style: var(--font-style-italic);
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-md);
-  line-height: var(--line-height-tight);
-}
-
-.sleep-type__subtitle {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-weight-light);
-  font-style: var(--font-style-italic);
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-xl);
-  letter-spacing: 0.02em;
-}
-
-.sleep-type__description {
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-secondary);
-  max-width: 350px;
+  max-width: 1200px;
   margin: 0 auto;
-}
-
-.sleep-types-divider {
-  width: 2px;
-  height: 400px;
-  background: linear-gradient(180deg, transparent, var(--color-secondary-medium), transparent);
-  align-self: center;
-  transition: all var(--transition-slow);
-}
-
-.sleep-types-grid:hover .sleep-types-divider {
-  background: linear-gradient(180deg, transparent, var(--color-primary), transparent);
-  box-shadow: 0 0 20px var(--color-primary-medium);
-}
-
-.interactive-cta {
-  text-align: center;
-  margin: var(--spacing-3xl) 0;
-}
-
-.interactive-cta__text {
-  font-family: var(--font-accent);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-secondary);
-  letter-spacing: 0.05em;
-  line-height: 1.5;
+  padding: 0 var(--container-padding);
 }
 
 /* ============================================
-   SECCIÓN NIVELES DEL SUEÑO (Interactiva)
+   TÍTULO PRINCIPAL
    ============================================ */
 
-.sleep-levels-section {
-  padding: var(--spacing-5xl) 0;
-  position: relative;
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 72px; /* Fraunces 72pt */
+  font-weight: 300; /* Light */
+  font-style: italic;
+  color: #A98EE9;
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
-.sleep-levels-grid {
+/* ============================================
+   LÍNEA HORIZONTAL SUPERIOR
+   ============================================ */
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: 2px;
+  background: #A98EE9;
+  margin: 30px auto;
+}
+
+/* ============================================
+   PÁRRAFO INTRODUCTORIO
+   ============================================ */
+
+.section-intro {
+  font-family: 'Times New Roman', serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #DBD4B9;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+/* ============================================
+   LÍNEA HORIZONTAL INFERIOR (antes del grid)
+   ============================================ */
+
+.section-intro::after {
+  content: '';
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: 2px;
+  background: #A98EE9;
+  margin: 40px auto 60px;
+}
+
+/* ============================================
+   GRID DE REM Y NREM
+   ============================================ */
+
+.sleep-types-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-5xl);
+  grid-template-columns: 1fr 2px 1fr; /* Columna izq | línea | Columna der */
+  gap: 80px; /* Espacio entre columnas */
+  align-items: start;
+  margin-bottom: 80px;
   max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================
+   ARTÍCULOS REM Y NREM
+   ============================================ */
+
+.sleep-type {
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* ============================================
+   TÍTULOS (REM / NREM)
+   ============================================ */
+
+.sleep-type__title {
+  font-family: 'Fraunces', serif;
+  font-size: 72px; /* Fraunces 72pt */
+  font-weight: 300; /* Light */
+  font-style: italic;
+  color: #A98EE9;
+  margin-bottom: 15px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================
+   SUBTÍTULOS (RAPID EYE MOVEMENT / NON...)
+   ============================================ */
+
+.sleep-type__subtitle {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+  color: #A98EE9;
+  margin-bottom: 25px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* ============================================
+   DESCRIPCIONES (párrafos)
+   ============================================ */
+
+.sleep-type__description {
+  font-family: 'Times New Roman', serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #DBD4B9;
+  max-width: 380px;
   margin: 0 auto;
+  text-align: left; /* Alineado a la izquierda para mejor legibilidad */
+}
+
+/* ============================================
+   LÍNEA DIVISORIA VERTICAL CENTRAL
+   ============================================ */
+
+.sleep-types-divider {
+  width: 2px;
+  height: 100%;
+  min-height: 500px; /* Altura mínima */
+  background: #A98EE9;
+  align-self: stretch; /* Se estira para ocupar toda la altura */
   position: relative;
 }
 
-.sleep-levels-grid::before,
-.sleep-levels-grid::after {
+/* Efecto de gradiente sutil en los extremos */
+.sleep-types-divider::before,
+.sleep-types-divider::after {
   content: '';
   position: absolute;
-  left: 25%;
-  right: 25%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-primary-light), transparent);
-  opacity: 0.3;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, #A98EE9);
 }
 
-.sleep-levels-grid::before {
-  top: 15%;
+.sleep-types-divider::before {
+  top: 0;
+  background: linear-gradient(to bottom, #0A0031, #A98EE9);
 }
 
-.sleep-levels-grid::after {
-  bottom: 15%;
+.sleep-types-divider::after {
+  bottom: 0;
+  background: linear-gradient(to top, #0A0031, #A98EE9);
 }
 
-.sleep-level {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+/* ============================================
+   ANIMACIÓN HOVER EN LA LÍNEA DIVISORIA
+   ============================================ */
+
+.sleep-types-divider {
+  transition: all 0.4s ease;
 }
 
-.sleep-level__star {
-  width: 70px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--transition-normal);
-  margin-bottom: var(--spacing-md);
-  border-radius: 50%;
-  background: var(--color-primary-light);
-  border: 2px solid var(--color-primary);
-}
-
-.sleep-level__star:hover {
-  transform: scale(1.15) rotate(5deg);
-  background: var(--color-primary-medium);
-  box-shadow: 0 0 20px var(--color-primary-medium);
-}
-
-.sleep-level__star:active {
-  transform: scale(0.95);
-}
-
-.sleep-level__star.active {
-  background: var(--color-primary);
-  border-color: var(--color-secondary);
-  animation: starGlow 2s ease-in-out infinite 0.6s;
-}
-
-.sleep-level__star:focus {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 4px;
-}
-
-.sleep-level__star:focus:not(:focus-visible) {
-  outline: none;
-}
-
-.sleep-level__label {
-  font-family: var(--font-accent);
-  font-size: var(--font-size-label);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-sm);
-}
-
-.sleep-level__title {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-h2);
-  font-weight: var(--font-weight-light);
-  font-style: var(--font-style-italic);
-  color: var(--color-primary);
-  line-height: var(--line-height-tight);
-  margin-bottom: var(--spacing-md);
-}
-
-.sleep-level__duration {
-  font-family: var(--font-accent);
-  font-size: var(--font-size-label);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-secondary);
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transform: translateY(-10px);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.sleep-level__duration.revealed,
-.sleep-level__star.active ~ .sleep-level__duration {
-  opacity: 1;
-  max-height: 100px;
-  transform: translateY(0);
-  animation: softBounce 0.5s ease-out;
+.sleep-types-grid:hover .sleep-types-divider {
+  box-shadow: 0 0 20px rgba(169, 142, 233, 0.6),
+              0 0 40px rgba(169, 142, 233, 0.3);
+  filter: brightness(1.3);
 }
 
 /* ============================================
