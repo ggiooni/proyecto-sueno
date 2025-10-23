@@ -8,9 +8,9 @@
      ============================================ */
   
   /* Colores Principales */
-  --color-primary: #a98ee9;           /* Morado/Lavanda - Títulos */
-  --color-secondary: #dbd4b9;         /* Beige/Crema - Textos */
-  --color-background: #1a1a2e;        /* Azul oscuro - Fondo */
+ --color-primary: #36248B;      /* Violeta oscuro */
+  --color-secondary: #0A0031;    /* Azul muy oscuro */
+  --color-accent: #A98EE9;       /* Lavanda */
   
   /* Colores con transparencia (para efectos) */
   --color-primary-light: rgba(169, 142, 233, 0.1);
@@ -222,4 +222,16 @@
   --color-background: #f5f5f5;
   --color-primary: #7b5cb8;
   --color-secondary: #4a4a4a;
+}
+/* ============================================
+   AJUSTES DE FONDO PARA PANTALLAS ANCHAS
+   ============================================ */
+@media (min-width: var(--breakpoint-wide)) {  /* >1920px */
+  body {
+    background-size: 1920px auto;  /* Limita ancho max */
+    background-position: center top;
+  }
+  .container {
+    max-width: 1400px;  /* Ajusta container para centrar mejor, como en imagen */
+  }
 }

@@ -68,40 +68,6 @@
   letter-spacing: 0.1em;
 }
 
-/* ============================================
-   HERO - MEJORAS
-   ============================================ */
-
-.hero-quote {
-  max-width: 700px;
-  margin: var(--spacing-4xl) auto;
-  text-align: center;
-}
-
-.quote-text {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-h3);
-  font-weight: var(--font-weight-light);
-  font-style: italic;
-  color: var(--color-primary);
-  line-height: 1.4;
-  margin-bottom: var(--spacing-lg);
-}
-
-.quote-author {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-h3);
-  font-style: italic;
-  color: var(--color-primary);
-}
-
-.hero-cta {
-  margin-top: var(--spacing-3xl);
-  font-family: var(--font-accent);
-  font-size: var(--font-size-base);
-  color: var(--color-secondary);
-}
-
 /* Ajuste para imágenes de estrellas */
 .star-img {
   width: 60px;

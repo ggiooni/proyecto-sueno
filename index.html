@@ -13,9 +13,7 @@
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,300&family=Lato:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100..900;1,100..900&display=swap">
     
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/reset.css">
@@ -25,103 +23,147 @@
 </head>
 
 <body>
+    <!-- NAVEGACIÓN -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="#portada" class="site-logo">
+                <img src="assets/images/onirico.svg" alt="Onírico Logo">
+            </a>
 
-    <!-- ============================================
-     NAVEGACIÓN
-     ============================================ -->
-<header class="site-header">
-    <div class="nav-container">
-        <a href="#hero" class="site-logo">
-            <img src="assets/images/onirico.svg" alt="Onírico Logo">
-        </a>
+            <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-        <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <nav class="main-nav" id="mainNav">
-            <ul class="nav-list">
-                <li><a href="#portada" class="nav-link">Inicio</a></li>
-                <li><a href="#tipos-sueno" class="nav-link">Tipos de Sueño</a></li>
-                <li><a href="#ciclo-sueno" class="nav-link">Gráficos</a></li>
-                <li><a href="#astrologia" class="nav-link">Astrología</a></li>
-                <li><a href="#trivia" class="nav-link">Trivia</a></li>
-                <li><a href="#diario" class="nav-link">Diario de Sueños</a></li>
-                <li><a href="#contacto" class="nav-link">Contacto</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<!-- ============================================
-     SECCIÓN PORTADA
-     ============================================ -->
-<section id="portada" class="portada-section">
-    <div class="portada-container">
-        <!-- Texto izquierda: BIENVENIDOS -->
-        <div class="portada-text portada-text--left">
-            <p>BIENVENIDOS</p>
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><a href="#portada" class="nav-link">Inicio</a></li>
+                    <li><a href="#tipos-sueno" class="nav-link">Tipos de Sueño</a></li>
+                    <li><a href="#ciclo-sueno" class="nav-link">Gráficos</a></li>
+                    <li><a href="#astrologia" class="nav-link">Astrología</a></li>
+                    <li><a href="#trivia" class="nav-link">Trivia</a></li>
+                    <li><a href="#diario" class="nav-link">Diario de Sueños</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <!-- Logo central ONÍRICO con estrella -->
-<div class="portada-logo">
-    <div class="portada-logo-wrapper">
-    <img src="assets/images/onirico-logo/onirico.png" alt="Onírico" class="portada-logo-main">
-    <img src="assets/images/onirico-logo/star.svg" alt="" aria-hidden="true" class="portada-logo-star">
-</div>
-</div>
-
-        <!-- Texto derecha: Y BUENAS NOCHES -->
-        <div class="portada-text portada-text--right">
-            <p>Y BUENAS NOCHES</p>
-        </div>
-
-        <!-- Subtítulo debajo del logo -->
-        <div class="portada-subtitle-wrapper">
-            <h1 class="portada-subtitle">LOS MISTERIOS DEL DORMIR</h1>
-        </div>
-
-</div>
-</section>
-    <!-- ============================================
-         SECCIÓN 1: HERO - ¿POR QUÉ DORMIMOS?
-         ============================================ -->
-    <section id="hero" class="hero-section">
-        <div class="container">
-            <h1 class="hero-title">¿POR QUÉ<br>DORMIMOS?</h1>
-            <div class="hero-divider"></div>
-            <p class="hero-subtitle">EL COMBUSTIBLE INVISIBLE DEL CUERPO</p>
-            
-            <!-- Cita de Platón -->
-            <div class="hero-quote">
-                <p class="quote-text">
-                    "El sueño es la cadena de oro que<br>
-                    une la salud y nuestros cuerpos."
-                </p>
-                <p class="quote-author">-Platón</p>
+    <!-- SECCIÓN PORTADA -->
+    <section id="portada" class="portada-section">
+        <div class="portada-container">
+            <div class="portada-text portada-text--left">
+                <p>BIENVENIDOS</p>
             </div>
-            
-            <div class="hero-cta">
-                <p>REPOSÁ EN LA ESTRELLA</p>
+
+            <div class="portada-logo">
+                <div class="portada-logo-wrapper">
+                    <img src="assets/images/onirico-logo/onirico.png" alt="Onírico" class="portada-logo-main">
+                    <img src="assets/images/onirico-logo/star.svg" alt="Estrella decorativa" aria-hidden="true" class="portada-logo-star">
+                </div>
+            </div>
+
+            <div class="portada-text portada-text--right">
+                <p>Y BUENAS NOCHES</p>
+            </div>
+
+            <div class="portada-subtitle-wrapper">
+                <h1 class="portada-subtitle">LOS MISTERIOS DEL DORMIR</h1>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         SECCIÓN 2: TIPOS DE SUEÑO (REM vs NREM)
-         ============================================ -->
+    <!-- SECCIÓN 1: HERO - ¿POR QUÉ DORMIMOS? -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-illustration">
+                    <div class="eye-illustration-wrapper">
+                        <div class="eye-circle">
+                            <img 
+                                src="assets/images/ojo-sol/ojo-abierto.svg" 
+                                alt="Ojo abierto" 
+                                class="eye-state active" 
+                                id="eyeOpen"
+                            >
+                            <img 
+                                src="assets/images/ojo-sol/ojo-cerrado.svg" 
+                                alt="Ojo cerrado" 
+                                class="eye-state" 
+                                id="eyeClosed"
+                            >
+                        </div>
+                        
+                        <button id="starButton" class="star-button" aria-label="Cambiar entre despierto y dormido">
+                            <img 
+                                src="assets/images/ojo-sol/estrella-despierto.svg" 
+                                alt="Estrella despierta" 
+                                class="star-icon star-icon--awake active" 
+                                id="starAwake"
+                            >
+                            <img 
+                                src="assets/images/ojo-sol/estrella-dormida.svg" 
+                                alt="Estrella dormida" 
+                                class="star-icon star-icon--sleeping" 
+                                id="starSleeping"
+                            >
+                        </button>
+                        
+                        <div class="celestial-circle">
+                            <img 
+                                src="assets/images/ojo-sol/sol.svg" 
+                                alt="Sol" 
+                                class="celestial-body celestial-body--sun active"
+                                id="sunIcon"
+                            >
+                            <img 
+                                src="assets/images/ojo-sol/luna.svg" 
+                                alt="Luna" 
+                                class="celestial-body celestial-body--moon" 
+                                id="moonIcon"
+                            >
+                        </div>
+                    </div>
+                    <p class="hero-cta">REPOSÁ EN LA ESTRELLA</p>                    
+                </div>
+                
+                
+                <div class="hero-content">
+                    <h1 class="hero-title">¿POR QUÉ<br>DORMIMOS?</h1>
+                    <div class="hero-divider"></div>
+                    <p class="hero-subtitle">EL COMBUSTIBLE INVISIBLE DEL CUERPO</p>
+                 <div class="hero-text">
+                        <p>
+                            Dormir es mucho más que cerrar los ojos y desconectarse. Es un proceso complejo y fundamental para la supervivencia. El humano necesita períodos de reposo profundo en los que se activen funciones vitales que no pueden llevarse a cabo con la misma eficacia mientras estamos despiertos.
+                        </p>
+                        <p>
+                            Durante el sueño, el cerebro trabaja sin parar. Se consolidan recuerdos, se organiza la información adquirida durante el día y se fortalecen las conexiones neuronales. Esto es clave para el aprendizaje y la creatividad, ya que es ahí donde terminamos de absorber el contenido. El cuerpo también aprovecha este tiempo ya que las células se reparan, los músculos se regeneran y el sistema inmune refuerza sus defensas.
+                        </p>
+                        <p>
+                            Dormir es una parte central de nuestro día, o más bien nuestra noche, es parte de un proceso cuya función era no solo trabajar la mente, sino mantener una parte de nuestro cuerpo alerta en caso de un posible ataque. Esto puede sonar extraño en el 2025, pero hace miles de años, los sueños, eran los que nos mantenían parcialmente alerta en caso de peligro.
+                        </p>
+                </div>
+                </div>
+            </div>        
+            <blockquote class="hero-quote">
+                <p>"El sueño es la cadena de oro que</p>
+                <p> une la salud y nuestros cuerpos"</p>
+                <cite>— Platón</cite>
+            </blockquote>
+    </div>
+</section>
+
+    <!-- SECCIÓN 2: TIPOS DE SUEÑO (REM vs NREM) -->
     <section id="tipos-sueno" class="sleep-types-section">
         <div class="container">
             <h2 class="section-title">LOS TIPOS DE SUEÑO</h2>
-            
             <p class="section-intro">
-                El sueño sucede en ciclos, cada ciclo está conformado por dos tipos : REM y NREM, 
+                El sueño sucede en ciclos, cada ciclo está conformado por dos tipos: REM y NREM, 
                 dentro del NREM hay distintas instancias en las que varía la profundidad del sueño.
             </p>
 
             <div class="sleep-types-grid">
-                
                 <article class="sleep-type sleep-type--rem">
                     <h3 class="sleep-type__title">REM</h3>
                     <p class="sleep-type__subtitle">RAPID EYE MOVEMENT</p>
@@ -143,11 +185,10 @@
                         En esta etapa, el movimiento de los ojos está ausente. 
                         Su característica principal es que el sueño NREM está 
                         conformada por 3 instancias de sueño, en distintos 
-                        niveles de profundidad. Estas 3 Instancias se conocen 
+                        niveles de profundidad. Estas 3 instancias se conocen 
                         también como niveles.
                     </p>
                 </article>
-
             </div>
 
             <div class="interactive-cta">
@@ -156,21 +197,16 @@
                     PARA REVELAR LA MAGIA
                 </p>
             </div>
-
         </div>
     </section>
 
-    <!-- ============================================
-         SECCIÓN 3: NIVELES DEL SUEÑO (Interactiva)
-         ============================================ -->
+    <!-- SECCIÓN 3: NIVELES DEL SUEÑO (Interactiva) -->
     <section id="niveles-sueno" class="sleep-levels-section">
         <div class="container">
-            
             <div class="sleep-levels-grid">
-
                 <article class="sleep-level" data-level="n1">
                     <button class="sleep-level__star" aria-label="Revelar información sobre N1">
-                        <img src="https://www.figma.com/api/mcp/asset/e789f1d1-4242-422d-90d2-6fd2b07797dc" alt="Estrella N1" class="star-img">
+                        <img src="assets/images/stars/n1-star.svg" alt="Estrella N1" class="star-img">
                     </button>
                     <span class="sleep-level__label">N1 (NREM)</span>
                     <h4 class="sleep-level__title">Somnolencia</h4>
@@ -179,7 +215,7 @@
 
                 <article class="sleep-level" data-level="n2">
                     <button class="sleep-level__star" aria-label="Revelar información sobre N2">
-                        <img src="https://www.figma.com/api/mcp/asset/7d3951fd-8420-4ceb-87d8-ff2b15d12451" alt="Estrella N2" class="star-img">
+                        <img src="assets/images/stars/n2-star.svg" alt="Estrella N2" class="star-img">
                     </button>
                     <span class="sleep-level__label">N2 (NREM)</span>
                     <h4 class="sleep-level__title">Sueño ligero</h4>
@@ -188,7 +224,7 @@
 
                 <article class="sleep-level" data-level="n3">
                     <button class="sleep-level__star" aria-label="Revelar información sobre N3">
-                        <img src="https://www.figma.com/api/mcp/asset/6112b418-7308-4a78-9eb7-b860f87faa84" alt="Estrella N3" class="star-img">
+                        <img src="assets/images/stars/n3-star.svg" alt="Estrella N3" class="star-img">
                     </button>
                     <span class="sleep-level__label">N3 (NREM)</span>
                     <h4 class="sleep-level__title">Sueño profundo</h4>
@@ -197,24 +233,19 @@
 
                 <article class="sleep-level" data-level="rem">
                     <button class="sleep-level__star" aria-label="Revelar información sobre REM">
-                        <img src="https://www.figma.com/api/mcp/asset/7353494e-45b9-4720-b6d7-24716d426be7" alt="Estrella REM" class="star-img">
+                        <img src="assets/images/stars/rem-star.svg" alt="Estrella REM" class="star-img">
                     </button>
                     <span class="sleep-level__label">REM</span>
                     <h4 class="sleep-level__title">Etapa REM</h4>
                     <p class="sleep-level__duration" hidden>DURACIÓN: 10-60 MIN.</p>
                 </article>
-
             </div>
-
         </div>
     </section>
 
-    <!-- ============================================
-         SECCIÓN 4: CICLO DEL SUEÑO (Gráfico Circular)
-         ============================================ -->
+    <!-- SECCIÓN 4: CICLO DEL SUEÑO (Gráfico Circular) -->
     <section id="ciclo-sueno" class="sleep-cycle-section">
         <div class="container">
-            
             <div class="cycle-info">
                 <p class="cycle-info__text">
                     Un ciclo dura <span class="highlight">aproximadamente 90 minutos.</span><br>
@@ -227,14 +258,12 @@
 
             <figure class="cycle-diagram">
                 <div class="cycle-diagram__wrapper">
-                    <img src="https://www.figma.com/api/mcp/asset/7a02d2cf-25df-4a10-ae1b-a4c6a2623b2a" alt="Diagrama circular del ciclo del sueño" class="cycle-diagram__image">
-                    
+                    <img src="assets/images/cycle-diagram.svg" alt="Diagrama circular del ciclo del sueño" class="cycle-diagram__image">
                     <div class="cycle-diagram__center">
                         <h3 class="cycle-diagram__title">
                             EL<br>CICLO<br>DEL<br>SUEÑO
                         </h3>
                     </div>
-
                     <div class="cycle-labels">
                         <span class="cycle-label cycle-label--inicio">INICIO<br>DEL CICLO</span>
                         <span class="cycle-label cycle-label--paso">PASO</span>
@@ -245,66 +274,50 @@
                     N1 (somnolencia), N2 (sueño ligero), N3 (sueño profundo) y REM
                 </figcaption>
             </figure>
-
         </div>
     </section>
 
-    <!-- ============================================
-         SECCIÓN 5: EVOLUCIÓN NOCTURNA (Gráfico)
-         ============================================ -->
+    <!-- SECCIÓN 5: EVOLUCIÓN NOCTURNA (Gráfico) -->
     <section id="evolucion-nocturna" class="night-evolution-section">
         <div class="container">
-            
             <h2 class="section-title section-title--center">CICLOS DEL SUEÑO EN UNA NOCHE</h2>
-            
             <div class="evolution-intro">
                 <p>¿Y cómo se ve esto en una noche de sueño?</p>
                 <p>De la siguiente manera...</p>
             </div>
-
             <figure class="evolution-chart">
                 <img src="assets/images/evolution-chart.svg" alt="Gráfico de evolución del sueño durante una noche" class="evolution-chart__image">
-
                 <figcaption class="evolution-caption">
                     Vemos como a medida que pasa la noche, la etapa REM ocupa cada vez más tiempo 
                     en el ciclo. A su vez, la etapa de sueño profundo N3 es cada vez menos frecuente.
                 </figcaption>
             </figure>
-
         </div>
     </section>
 
-    <!-- ============================================
-         SECCIÓN 6: LOS SUEÑOS Y LA ASTROLOGÍA
-         ============================================ -->
+    <!-- SECCIÓN 6: LOS SUEÑOS Y LA ASTROLOGÍA -->
     <section id="astrologia" class="astrology-section">
         <div class="container">
             <h2 class="section-title section-title--center">
                 LOS SUEÑOS Y<br>LA ASTROLOGÍA
             </h2>
-            
             <div class="astrology-content">
                 <div class="astrology-illustrations">
                     <!-- Ilustraciones de constelaciones -->
                 </div>
-                
                 <p class="astrology-text">EL LENGUAJE ASTRAL DEL DORMIR</p>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         SECCIÓN 7: TRIVIA NOCTURNA
-         ============================================ -->
+    <!-- SECCIÓN 7: TRIVIA NOCTURNA -->
     <section id="trivia" class="trivia-section">
         <div class="container">
             <h2 class="trivia-title">TRIVIA NOCTURNA</h2>
             <p class="trivia-subtitle">
                 PONÉ TU CONOCIMIENTO SOBRE EL SUEÑO A PRUEBA CON ESTE QUIZ
             </p>
-            
             <div class="quiz-grid">
-                
                 <article class="quiz-question">
                     <h3 class="quiz-question__title">
                         ¿En qué país se duerme<br>
@@ -356,20 +369,17 @@
                         <button class="quiz-option" data-correct="false">CROACIA</button>
                     </div>
                 </article>
-
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         SECCIÓN 8: EL DIARIO DE LOS SUEÑOS
-         ============================================ -->
+    <!-- SECCIÓN 8: EL DIARIO DE LOS SUEÑOS -->
     <section id="diario" class="dream-diary-section">
         <div class="container">
             <h2 class="diary-question">¿Tenés algún sueño recurrente?</h2>
             <p class="diary-subtitle">EL DIARIO DE LOS SUEÑOS</p>
             
-            <form class="dream-form" id="dreamForm">
+            <div class="dream-form" id="dreamForm">
                 <div class="form-field">
                     <label for="nombre" class="form-label">NOMBRE</label>
                     <input 
@@ -406,14 +416,12 @@
                     ></textarea>
                 </div>
 
-                <button type="submit" class="form-submit">ENVIAR</button>
-            </form>
+                <button type="button" class="form-submit" onclick="handleFormSubmit()">ENVIAR</button>
+            </div>
         </div>
     </section>
 
-    <!-- ============================================
-         FOOTER FINAL
-         ============================================ -->
+    <!-- FOOTER FINAL -->
     <footer class="site-footer-final">
         <div class="container">
             <div class="footer-grid">
@@ -433,9 +441,9 @@
                 </div>
                 
                 <div class="footer-social">
-                    <a href="#" aria-label="Instagram">📷</a>
-                    <a href="#" aria-label="Facebook">📘</a>
-                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="https://instagram.com" aria-label="Visitar Instagram de Onírico">📷</a>
+                    <a href="https://facebook.com" aria-label="Visitar Facebook de Onírico">📘</a>
+                    <a href="https://twitter.com" aria-label="Visitar Twitter de Onírico">🐦</a>
                 </div>
             </div>
             
@@ -448,5 +456,18 @@
     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/quiz.js"></script>
+    <script>
+        function handleFormSubmit() {
+            const form = document.getElementById('dreamForm');
+            const formData = {
+                nombre: form.querySelector('#nombre').value,
+                email: form.querySelector('#email').value,
+                respuesta: form.querySelector('#respuesta').value
+            };
+            console.log('Formulario enviado:', formData);
+            alert('¡Gracias por compartir tu sueño! Los datos han sido registrados.');
+            form.reset();
+        }
+    </script>
 </body>
 </html>
