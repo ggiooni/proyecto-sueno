@@ -154,52 +154,136 @@
     </div>
 </section>
 
-    <!-- SECCIÓN 2: TIPOS DE SUEÑO (REM vs NREM) -->
-    <section id="tipos-sueno" class="sleep-types-section">
-        <div class="container">
-            <h2 class="section-title">LOS TIPOS DE SUEÑO</h2>
-            <p class="section-intro">
-                El sueño sucede en ciclos, cada ciclo está conformado por dos tipos: REM y NREM, 
+<!-- SECCIÓN TIPOS DE SUEÑO (Integrada con Niveles - Diagrama Vertical Largo) -->
+<section id="tipos-sueno" class="sleep-types-integrated">
+    <div class="container">
+        <!-- Título y Subtítulo Top -->
+        <div class="types-header">
+            <h2 class="section-title types-title">LOS TIPOS DE SUEÑO</h2>
+            <p class="section-intro types-subtitle">
+                El sueño sucede en ciclos, cada ciclo está conformado por dos tipos: REM y NREM,<br>
                 dentro del NREM hay distintas instancias en las que varía la profundidad del sueño.
             </p>
+            <img src="assets/images/sleep-types/estrella-bottom.svg" alt="estrellita" class="types-divider-diamond" aria-hidden="true">
+        </div>
 
-            <div class="sleep-types-grid">
-                <article class="sleep-type sleep-type--rem">
+        <!-- CTA Interactivo (antes del diagrama) -->
+        <div class="interactive-cta">
+            <p class="interactive-cta__text">
+                TOCÁ LAS SIGUIENTES ESTRELLAS<br>
+                PARA REVELAR LA MAGIA
+            </p>
+        </div>
+
+        <!-- Diagrama Principal: Grid Horizontal REM | Barra | NREM con Sub-etapas Verticales -->
+        <div class="types-diagram">
+            <!-- Columna Izquierda: REM -->
+            <div class="types-column rem-column">
+                <div class="rem-panel">
                     <h3 class="sleep-type__title">REM</h3>
                     <p class="sleep-type__subtitle">RAPID EYE MOVEMENT</p>
-                    <p class="sleep-type__description">
-                        Esta etapa se caracteriza por el movimiento rápido de 
-                        los ojos por debajo de los párpados cerrados. Es el 
-                        momento en un ciclo de sueño donde ocurren nuestros 
-                        sueños más vívidos y locos ya que acá la actividad 
-                        cerebral se acelera.
-                    </p>
-                </article>
+                    <p class="sleep-type__description">Esta etapa se caracteriza por el movimiento rápido de los ojos por debajo de los párpados cerrados. Es el momento en un ciclo de sueño donde ocurren nuestros sueños más vívidos y locos ya que acá la actividad cerebral se acelera.</p>
+                    <!-- Icono Ojo + Animación Placeholder (derecha) -->
+                    <div class="etapa-wrapper rem-etapa">
+                        <div class="icon-placeholder anim-right"> <!-- Animación: ojos moviéndose --></div>
+                        <img src="assets/images/sleep-types/ojo-rapido.gif" alt="Ojo en movimiento REM" class="etapa-icon" aria-hidden="true">
+                        <button class="etapa-star" data-target="desc-rem" aria-label="Revelar info REM">
+                            <svg class="diamante-svg" viewBox="0 0 20 20"> <!-- Export de Figma -->
+                                <polygon points="10,2 14,6 10,10 6,6" fill="#9370DB" />
+                            </svg>
+                        </button>
+                        <span class="etapa-label">Etapa REM</span>
+                        <!-- Toggle Descripción -->
+                        <div id="desc-rem" class="descripcion-toggle">
+                            Descripción REM: Movimientos oculares, sueños vívidos, ~20-25% del sueño. Duración: 10-60 min.
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <div class="sleep-types-divider" aria-hidden="true"></div>
+            <!-- Barra Vertical Central (SVG Largo) -->
+           <svg class="types-divider-vertical" viewBox="0 0 2 600" aria-hidden="true">
+            <line x1="1" y1="0" x2="1" y2="600" stroke="#A98EE9" stroke-width="2" opacity="0.8"/>
+        </svg>
 
-                <article class="sleep-type sleep-type--nrem">
+            <!-- Columna Derecha: NREM con Sub-etapas Verticales -->
+            <div class="types-column nrem-column">
+                <div class="nrem-panel">
                     <h3 class="sleep-type__title">NREM</h3>
                     <p class="sleep-type__subtitle">NON RAPID EYE MOVEMENT</p>
-                    <p class="sleep-type__description">
-                        En esta etapa, el movimiento de los ojos está ausente. 
-                        Su característica principal es que el sueño NREM está 
-                        conformada por 3 instancias de sueño, en distintos 
-                        niveles de profundidad. Estas 3 instancias se conocen 
-                        también como niveles.
-                    </p>
-                </article>
-            </div>
+                    <p class="sleep-type__description">En esta etapa, el movimiento de los ojos está ausente. Su característica principal es que el sueño NREM está conformada por 3 instancias de sueño, en distintos niveles de profundidad. Estas 3 instancias se conocen también como niveles.</p>
+                </div>
 
-            <div class="interactive-cta">
-                <p class="interactive-cta__text">
-                    TOCÁ LAS SIGUIENTES ESTRELLAS<br>
-                    PARA REVELAR LA MAGIA
-                </p>
+                <!-- Sub-etapas Verticales (Flex Column) -->
+                <div class="nrem-subetapas">
+                    <!-- N1: Somnolencia -->
+                    <div class="etapa-wrapper n1-etapa">
+                        <!-- Conector Horizontal SVG (corto, entre barra y etapa) -->
+                        <svg class="conector-horizontal" viewBox="0 0 50 2" style="width: 50px; height: 2px;">
+                            <line x1="0" y1="1" x2="50" y2="1" stroke="#9370DB" stroke-width="2" />
+                        </svg>
+                        <div class="icon-placeholder anim-left"> <!-- Animación: ondas theta --></div>
+                        <img src="assets/images/sleep-types/ojo-lento.gif" alt="Ojo cerrándose N1" class="etapa-icon" aria-hidden="true">
+                        <button class="etapa-star" data-target="desc-n1" aria-label="Revelar info N1">
+                            <svg class="diamante-svg" viewBox="0 0 20 20">
+                                <polygon points="10,2 14,6 10,10 6,6" fill="#9370DB" />
+                            </svg>
+                        </button>
+                        <span class="etapa-label">N1 (NREM) Somnolencia</span>
+                        <div id="desc-n1" class="descripcion-toggle">
+                            N1: Transición al sueño, ondas theta, fácil despertar. Duración: 1-7 min (~5% del sueño).
+                        </div>
+                    </div>
+
+                    <!-- N2: Sueño Ligero -->
+                    <div class="etapa-wrapper n2-etapa">
+                        <svg class="conector-horizontal" viewBox="0 0 50 2" style="width: 50px; height: 2px;">
+                            <line x1="0" y1="1" x2="50" y2="1" stroke="#9370DB" stroke-width="2" />
+                        </svg>
+                        <div class="icon-placeholder anim-right"> <!-- Animación: husos de sueño --></div>
+                        <img src="assets/images/sleep-types/onda-ligera.gif" alt="Ondas ligeras N2" class="etapa-icon" aria-hidden="true">
+                        <button class="etapa-star" data-target="desc-n2" aria-label="Revelar info N2">
+                            <svg class="diamante-svg" viewBox="0 0 20 20">
+                                <polygon points="10,2 14,6 10,10 6,6" fill="#9370DB" />
+                            </svg>
+                        </button>
+                        <span class="etapa-label">N2 (NREM) Sueño ligero</span>
+                        <div id="desc-n2" class="descripcion-toggle">
+                            N2: Ondas sigma, consolidación memoria, ~50% del sueño. Duración: 10-25 min.
+                        </div>
+                    </div>
+
+                    <!-- N3: Sueño Profundo -->
+                    <div class="etapa-wrapper n3-etapa">
+                        <svg class="conector-horizontal" viewBox="0 0 50 2" style="width: 50px; height: 2px;">
+                            <line x1="0" y1="1" x2="50" y2="1" stroke="#9370DB" stroke-width="2" />
+                        </svg>
+                        <div class="icon-placeholder anim-left"> <!-- Animación: ondas delta --></div>
+                        <img src="assets/images/sleep-types/circulo-profundo.gif" alt="Círculo profundo N3" class="etapa-icon" aria-hidden="true">
+                        <button class="etapa-star" data-target="desc-n3" aria-label="Revelar info N3">
+                            <svg class="diamante-svg" viewBox="0 0 20 20">
+                                <polygon points="10,2 14,6 10,10 6,6" fill="#9370DB" />
+                            </svg>
+                        </button>
+                        <span class="etapa-label">N3 (NREM) Sueño profundo</span>
+                        <div id="desc-n3" class="descripcion-toggle">
+                            N3: Ondas delta lentas, reparación física, difícil despertar. Duración: 20-40 min (~20% del sueño).
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
+        <!-- Texto Bottom (Teaser Ciclo) -->
+        <div class="types-footer">
+            <p class="types-teaser">
+                Un ciclo dura aproximadamente 90 minutos.<br>
+                En una noche de 8 horas, entran alrededor de 5-6 ciclos.<br>
+                La proporción de REM aumenta progresivamente.
+            </p>
+        </div>
+    </div>
+</section>
     <!-- SECCIÓN 3: NIVELES DEL SUEÑO (Interactiva) -->
     <section id="niveles-sueno" class="sleep-levels-section">
         <div class="container">

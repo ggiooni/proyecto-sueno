@@ -611,201 +611,283 @@ body {
 }
 
 /* ============================================
-   SECCIÓN TIPOS DE SUEÑO (REM vs NREM)
+   SECCIÓN TIPOS DE SUEÑO INTEGRADA
    ============================================ */
-
-.sleep-types-section {
-  padding: 100px 0 120px;
-  position: relative;
-  background-color: #0A0031; /* ⭐ Fondo azul oscuro según diseño */
-  overflow: visible;
-  margin-top: 0;
+.sleep-types-integrated {
+    min-height: 120vh; /* Largo como Figma */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--spacing-3xl) 0;
+    background-color: #0A0031;
+    position: relative;
+    overflow: visible;
 }
 
-.sleep-types-section .container {
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
+.types-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
 }
 
-/* ============================================
-   TÍTULO PRINCIPAL
-   ============================================ */
-
-.section-title {
-  font-family: 'Fraunces', serif;
-  font-size: 72px; /* Fraunces 72pt */
-  font-weight: 300; /* Light */
-  font-style: italic;
-  color: #A98EE9;
-  text-align: center;
-  margin-bottom: 40px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
+.types-title {
+    font-family: var(--font-fraunces);
+    font-size: 62px; 
+    font-style: Bold;
+    color: #A98EE9;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-md);
 }
-
-/* ============================================
-   LÍNEA HORIZONTAL SUPERIOR
-   ============================================ */
-
-.section-title::after {
+.types-title::after {
   content: '';
   display: block;
-  width: 100%;
-  max-width: 600px;
+  width: 820px;
   height: 2px;
   background: #A98EE9;
-  margin: 30px auto;
+  margin: 18px auto 0;
 }
-
-/* ============================================
-   PÁRRAFO INTRODUCTORIO
-   ============================================ */
-
-.section-intro {
-  font-family: 'Times New Roman', serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.6;
-  color: #DBD4B9;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 50px;
+.types-subtitle {
+    max-width: 820px;
+    margin: 30px auto var(--spacing-lg);
+    font-size: 24px;
+    color: #DBD4B9; 
+    font-style: normal; 
+    line-height: 1.6;
+    text-align: center;
 }
-
-/* ============================================
-   LÍNEA HORIZONTAL INFERIOR (antes del grid)
-   ============================================ */
-
-.section-intro::after {
+.types-subtitle::after {
   content: '';
   display: block;
-  width: 100%;
-  max-width: 600px;
+  width: 820px;
   height: 2px;
   background: #A98EE9;
-  margin: 40px auto 60px;
+  margin: 40px auto 0; 
+}
+/* Rombo/Estrella centrado en el stroke */
+.types-header {
+    position: relative;
 }
 
-/* ============================================
-   GRID DE REM Y NREM
-   ============================================ */
-
-.sleep-types-grid {
-  display: grid;
-  grid-template-columns: 1fr 2px 1fr; /* Columna izq | línea | Columna der */
-  gap: 80px; /* Espacio entre columnas */
-  align-items: start;
-  margin-bottom: 80px;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+.types-divider-diamond {
+    position: absolute;
+    bottom: -30px; /* Ajustar según necesites */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 64px;
+    height: 64px;
+    z-index: 10;
+    filter: drop-shadow(0 0 12px rgba(169, 142, 233, 0.7));
 }
 
-/* ============================================
-   ARTÍCULOS REM Y NREM
-   ============================================ */
-
-.sleep-type {
-  text-align: center;
-  padding: 0 20px;
+/* Diagrama Principal */
+.types-diagram {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; 
+    gap: var(--spacing-xl);
+    align-items: start;
+    max-width: 1000px; 
+    margin: -100px auto var(--spacing-3xl);
+    height: 800px; 
+    position: relative;
 }
 
-/* ============================================
-   TÍTULOS (REM / NREM)
-   ============================================ */
-
-.sleep-type__title {
-  font-family: 'Fraunces', serif;
-  font-size: 72px; /* Fraunces 72pt */
-  font-weight: 300; /* Light */
-  font-style: italic;
-  color: #A98EE9;
-  margin-bottom: 15px;
-  line-height: 1;
-  letter-spacing: -0.01em;
+.types-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-/* ============================================
-   SUBTÍTULOS (RAPID EYE MOVEMENT / NON...)
-   ============================================ */
-
-.sleep-type__subtitle {
-  font-family: 'Fraunces', serif;
-  font-size: 16px;
-  font-weight: 300;
-  font-style: italic;
-  color: #A98EE9;
-  margin-bottom: 25px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  line-height: 1.2;
+.rem-column { 
+    align-items: flex-end; 
+    text-align: right; 
+    justify-content: flex-start;
+}
+.nrem-column { 
+    align-items: flex-start; 
+    text-align: left; 
+    justify-content: flex-start;
 }
 
-/* ============================================
-   DESCRIPCIONES (párrafos)
-   ============================================ */
-
-.sleep-type__description {
-  font-family: 'Times New Roman', serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.7;
-  color: #DBD4B9;
-  max-width: 380px;
-  margin: 0 auto;
-  text-align: left; /* Alineado a la izquierda para mejor legibilidad */
+.rem-panel {
+    max-width: 300px;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    margin-bottom: 0;
+    text-align: right; 
+}
+.nrem-panel {
+    max-width: 300px;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    margin-bottom: 0;
+    text-align: left;
+}
+/* Descripciones específicas */
+.rem-column .sleep-type__description { 
+    text-align: right !important; 
+    text-align-last: right; 
+    hyphens: none !important;
+    word-break: keep-all; 
+    margin: 0;
+    padding: 0 var(--spacing-md) 0 0; 
+    white-space: normal;
+    line-height: 1.5; 
+    letter-spacing: 0;
 }
 
-/* ============================================
-   LÍNEA DIVISORIA VERTICAL CENTRAL
-   ============================================ */
-
-.sleep-types-divider {
-  width: 2px;
-  height: 100%;
-  min-height: 500px; /* Altura mínima */
-  background: #A98EE9;
-  align-self: stretch; /* Se estira para ocupar toda la altura */
-  position: relative;
+.nrem-column .sleep-type__description { 
+    text-align: left;
+    text-align-last: left;
+    margin: 0;
+    white-space: normal;
+}
+.sleep-type__title { 
+    color: #A98EE9; 
+    font-size: 70px;
+    font-weight: 300;
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    margin-bottom: 10px; 
+    line-height: 1;
+    text-align: center;
+}
+.sleep-type__subtitle { 
+    color: #A98EE9; 
+    font-size: 18px;
+    font-weight: 300;
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    text-transform: uppercase; 
+    margin-bottom: 30px; 
+    letter-spacing: 0.1em;
+    opacity: 0.85;
+    text-align: center; 
+}
+.sleep-type__description { 
+    color: #DBD4B9; 
+    font-size: 17px;
+    font-family: 'Times New Roman', serif;
+    font-weight: 400;
+    line-height: 1.8;
+    max-width: 380px; 
+}
+/* Sub-etapas y Wrappers */
+.nrem-subetapas {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    height: 100%;
 }
 
-/* Efecto de gradiente sutil en los extremos */
-.sleep-types-divider::before,
-.sleep-types-divider::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 50px;
-  background: linear-gradient(to bottom, transparent, #A98EE9);
+.etapa-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: var(--spacing-md) 0;
+    cursor: pointer;
+    transition: transform var(--transition-normal);
 }
 
-.sleep-types-divider::before {
-  top: 0;
-  background: linear-gradient(to bottom, #0A0031, #A98EE9);
+.etapa-wrapper:hover { transform: scale(1.02); }
+
+.etapa-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 var(--spacing-sm);
+    filter: drop-shadow(0 0 10px #9370DB); /* Glow Figma */
 }
 
-.sleep-types-divider::after {
-  bottom: 0;
-  background: linear-gradient(to top, #0A0031, #A98EE9);
+.diamante-svg { width: 25px; height: 25px; transition: transform var(--transition-normal); }
+.etapa-star:hover .diamante-svg { transform: rotate(180deg); } /* Spin interactivo */
+
+.etapa-label {
+    font-size: 16px;
+    color: #9370DB;
+    font-weight: bold;
+    margin-left: var(--spacing-sm);
 }
 
-/* ============================================
-   ANIMACIÓN HOVER EN LA LÍNEA DIVISORIA
-   ============================================ */
-
-.sleep-types-divider {
-  transition: all 0.4s ease;
+.icon-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(147, 112, 219, 0.3);
+    margin: 0 var(--spacing-xs);
+    animation: pulse 2s infinite; /* Placeholder anim */
 }
 
-.sleep-types-grid:hover .sleep-types-divider {
-  box-shadow: 0 0 20px rgba(169, 142, 233, 0.6),
-              0 0 40px rgba(169, 142, 233, 0.3);
-  filter: brightness(1.3);
+.anim-left { order: -1; } /* Izq para N1/N3 */
+.anim-right { order: 2; } /* Der para N2/REM */
+
+.conector-horizontal {
+    position: absolute;
+    left: -60px; /* Conecta a barra central */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* Toggles Descripciones */
+.descripcion-toggle {
+    display: none;
+    position: absolute;
+    bottom: 100%; left: 0; /* Popup arriba */
+    background: rgba(0,0,0,0.9);
+    color: #DBD4B9;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    max-width: 250px;
+    font-size: 14px;
+    z-index: 10;
+    border: 1px solid #9370DB;
+}
+
+.descripcion-toggle.active { display: block; animation: fadeInUp 0.3s ease; }
+
+.types-divider-vertical {
+    height: 800px; /* ⭐ Hacerla más alta - ajustar según necesites */
+    width: 2px;
+    background: #A98EE9;
+    margin: 0 60px; 
+    align-self: center; 
+    opacity: 1; 
+}
+
+/* Footer Teaser */
+.types-footer {
+    text-align: center;
+    margin-top: var(--spacing-3xl);
+}
+
+.types-teaser {
+    font-size: 18px;
+    color: #A98EE9;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Animaciones */
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Responsive (Stack en Mobile) */
+@media (max-width: 768px) {
+    .types-diagram {
+        grid-template-columns: 1fr; /* Stack vertical: REM > Barra > NREM */
+        grid-template-rows: auto auto auto;
+        height: auto;
+        gap: var(--spacing-2xl);
+    }
+    .rem-column, .nrem-column { align-items: center; text-align: center; }
+    .types-divider-vertical { height: 100px; align-self: center; } /* Barra corta en mobile */
+    .conector-horizontal { display: none; } /* Oculta conectores */
+    .types-title { font-size: 36px; }
 }
 
 /* ============================================
@@ -1167,6 +1249,30 @@ body {
     height: 85px;
   }
 }
+/* Animación fade in para REM/NREM */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sleep-type {
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+.sleep-type--rem {
+  animation-delay: 0.2s;
+}
+
+.sleep-type--nrem {
+  animation-delay: 0.4s;
+}
 
 @media (max-width: 768px) {
   .menu-toggle {
@@ -1376,15 +1482,6 @@ body {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .sleep-type__description,
-  .section-intro,
-  .hero-text p,
-  .evolution-caption {
-    color: var(--color-secondary);
-  }
-}
-
 @media print {
   body {
     background-color: white;
@@ -1403,9 +1500,20 @@ body {
     border: 2px solid black;
   }
 
-  .interactive-cta {
-    display: none;
-  }
+ .interactive-cta {
+  text-align: center;
+  margin: 100px 0 0;
+}
+.interactive-cta__text {
+  font-family: 'Optima nova LT Pro', 'Lato', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #DBD4B9;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.8;
+  opacity: 0.85;
+}
 /* ============================================
    Sleep Calculator Styles
    ============================================ */
