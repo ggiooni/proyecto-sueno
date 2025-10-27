@@ -683,7 +683,7 @@ body {
 .types-diagram {
     display: grid;
     grid-template-columns: 1fr auto 1fr; 
-    gap: var(--spacing-xl);
+    gap: 0;
     align-items: start;
     max-width: 1000px; 
     margin: -100px auto var(--spacing-3xl);
@@ -709,20 +709,20 @@ body {
 }
 
 .rem-panel {
-    max-width: 300px;
+    max-width: 420px;
     padding: 0;
     background: transparent;
     border-radius: 0;
     margin-bottom: 0;
-    text-align: right; 
+    margin-right: 60px; 
 }
 .nrem-panel {
-    max-width: 300px;
+    max-width: 420px;
     padding: 0;
     background: transparent;
     border-radius: 0;
     margin-bottom: 0;
-    text-align: left;
+    margin-left: 60px;  
 }
 /* Descripciones específicas */
 .rem-column .sleep-type__description { 
@@ -850,7 +850,7 @@ body {
     height: 800px; /* ⭐ Hacerla más alta - ajustar según necesites */
     width: 2px;
     background: #A98EE9;
-    margin: 0 60px; 
+    margin: 0; 
     align-self: center; 
     opacity: 1; 
 }
@@ -1500,20 +1500,36 @@ body {
     border: 2px solid black;
   }
 
- .interactive-cta {
+.interactive-cta {
   text-align: center;
-  margin: 100px 0 0;
+  margin-top: var(--spacing-xl); 
+  margin-bottom: var(--spacing-2xl);  
 }
 .interactive-cta__text {
-  font-family: 'Optima nova LT Pro', 'Lato', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: #DBD4B9;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  line-height: 1.8;
-  opacity: 0.85;
+  display: block; /* Treat as block for full centering control */
+  margin: var(--spacing-xl) auto var(--spacing-2xl) auto; /* Top: ~60px below bar (adjust var(--spacing-xl) based on Figma px); Bottom: space before timeline; Auto sides for perfect centering */
+  max-width: 400px; /* Constrain width to match design's dense centering (prevent stretching on wide screens) */
+  text-align: center; /* Center the text lines internally */
+  font-family: 'Optima nova LT Pro', 'Lato', sans-serif; /* Your design font; fallback for reliability */
+  font-size: 13px; /* Exact small size from design */
+  font-weight: var(--font-weight-medium); /* Medium for subtle emphasis */
+  color: #DBD4B9; /* Light beige from your palette (or var(--color-secondary) if defined) */
+  letter-spacing: 0.2em; /* Wide spacing for uppercase elegance */
+  text-transform: uppercase; /* All caps as in design */
+  line-height: 1.8; /* Spacing between lines for the two-line structure */
+  opacity: 0.85; /* Subtle ethereal fade matching the screenshot */
 }
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(20px); /* Start slightly below for upward reveal */
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ============================================
    Sleep Calculator Styles
    ============================================ */
