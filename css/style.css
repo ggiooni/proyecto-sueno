@@ -699,13 +699,14 @@ body {
 
 .rem-column { 
     align-items: flex-end; 
-    text-align: right; 
     justify-content: flex-start;
+    padding-right: 5px;  
 }
+
 .nrem-column { 
     align-items: flex-start; 
-    text-align: left; 
     justify-content: flex-start;
+    padding-left: 5px;  
 }
 
 .rem-panel {
@@ -714,7 +715,7 @@ body {
     background: transparent;
     border-radius: 0;
     margin-bottom: 0;
-    margin-right: 60px; 
+    margin-right: 35px; 
 }
 .nrem-panel {
     max-width: 420px;
@@ -722,19 +723,14 @@ body {
     background: transparent;
     border-radius: 0;
     margin-bottom: 0;
-    margin-left: 60px;  
+    margin-left: 40px;  
 }
 /* Descripciones específicas */
 .rem-column .sleep-type__description { 
-    text-align: right !important; 
-    text-align-last: right; 
-    hyphens: none !important;
-    word-break: keep-all; 
+    text-align: left;
+    text-align-last: left;
     margin: 0;
-    padding: 0 var(--spacing-md) 0 0; 
     white-space: normal;
-    line-height: 1.5; 
-    letter-spacing: 0;
 }
 
 .nrem-column .sleep-type__description { 
