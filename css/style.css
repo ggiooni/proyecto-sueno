@@ -686,8 +686,8 @@ body {
     gap: 0;
     align-items: flex-start;
     max-width: 1000px; 
-    margin: -66px auto var(--spacing-3xl);
-    height: 800px; 
+    margin: -66px auto 10px;
+    height: auto; 
     position: relative;
 }
 
@@ -744,7 +744,8 @@ body {
 }
 
 .nrem-column .sleep-type__description { 
-    text-align: left; 
+    direction: rtl;
+    text-align: justify !important; 
     text-align-last: left;
     hyphens: auto; 
     -webkit-hyphens: auto; 
@@ -784,22 +785,12 @@ body {
     line-height: 1.8;
     max-width: 380px; 
 }
-/* Sub-etapas y Wrappers */
-.nrem-subetapas {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xl);
-    height: 100%;
-}
-
 .interactive-cta-absolute {
-    position: absolute;
-    top: 180px;  /* Ajusta según necesites */
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     width: 100%;
     text-align: center;
     z-index: 5;
+    padding: 40px 0px;  /* Ajustá este valor según necesites */
 }
 
 .interactive-cta__text {
@@ -814,17 +805,40 @@ body {
     line-height: 1.8;
     opacity: 0.85;
 }
+.mini-barra-vertical {
+    height: 300px;
+    width: 2px;
+    margin: 0 auto;
+    display: block;
+}
 
 .etapa-wrapper {
     display: flex;
     align-items: center;
     position: relative;
-    margin: var(--spacing-md) 0;
+    margin: 0;
     cursor: pointer;
     transition: transform var(--transition-normal);
 }
 
-.etapa-wrapper:hover { transform: scale(1.02); }
+.etapa-wrapper:hover { 
+    transform: scale(1.02); 
+}
+
+/* Etapas a la derecha (N1, N3) */
+.etapa-wrapper.align-right {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: calc(50% + 20px);
+}
+
+/* Etapas a la izquierda (N2, REM) */
+.etapa-wrapper.align-left {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    margin-right: calc(50% + 20px);
+}
+
 
 .etapa-icon {
     width: 30px;
@@ -832,15 +846,52 @@ body {
     margin: 0 var(--spacing-sm);
     filter: drop-shadow(0 0 10px #9370DB); /* Glow Figma */
 }
+.etapa-star {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Exact horizontal center */
+  z-index: 1; /* Ensure it layers above if needed */
+  width: 40px; /* Size based on images; adjust */
+  height: 40px;
+  background: none; /* If button has bg, remove */
+  border: none; /* Clean button */
+  cursor: pointer;
+}
+.etapa-star:hover {
+    transform: scale(1.1) rotate(15deg);
+}
 
-.diamante-svg { width: 25px; height: 25px; transition: transform var(--transition-normal); }
-.etapa-star:hover .diamante-svg { transform: rotate(180deg); } /* Spin interactivo */
+.estrella-icon {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 8px rgba(169, 142, 233, 0.6));
+}
 
 .etapa-label {
-    font-size: 16px;
-    color: #9370DB;
-    font-weight: bold;
+    display: flex;
+    flex-direction: column; /* Mantener en columna */
+    align-items: flex-start; /* Alinear a la izquierda */
+    justify-content: center;
+    text-align: left;
     margin-left: var(--spacing-sm);
+    gap: 2px; /* Espacio pequeño entre las dos líneas */
+}
+.etapa-label-small {
+    font-size: 28px;
+    color: #A98EE9;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: Optima nova LT Pro, Lato, sans-serif;
+}
+.etapa-label-title {
+    font-size: 60px;
+    color: #A98EE9;
+    font-family: 'Fraunces', serif;
+    font-style: light italic;
+    font-weight: 300;
+    line-height: 1;
+    white-space: nowrap;
 }
 
 .icon-placeholder {
@@ -855,19 +906,11 @@ body {
 .anim-left { order: -1; } /* Izq para N1/N3 */
 .anim-right { order: 2; } /* Der para N2/REM */
 
-.conector-horizontal {
-    position: absolute;
-    left: -60px; /* Conecta a barra central */
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
+/* Toggles Descripciones */
 /* Toggles Descripciones */
 .descripcion-toggle {
     display: none;
     position: absolute;
-    bottom: 100%; left: 0; /* Popup arriba */
     background: rgba(0,0,0,0.9);
     color: #DBD4B9;
     padding: var(--spacing-md);
@@ -878,15 +921,66 @@ body {
     border: 1px solid #9370DB;
 }
 
+.descripcion-toggle.active { 
+    display: block; 
+    animation: fadeInUp 0.3s ease; 
+}
+
+/* Posiciones de tooltips */
+.descripcion-toggle.tooltip-right {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 15px;
+}
+
+.descripcion-toggle.tooltip-left {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 15px;
+}
+
+.descripcion-toggle.tooltip-top {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 15px;
+}
+
+.descripcion-toggle.tooltip-bottom {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 15px;
+}
 .descripcion-toggle.active { display: block; animation: fadeInUp 0.3s ease; }
 
-.types-divider-vertical {
-    height: 800px; /* ⭐ Hacerla más alta - ajustar según necesites */
+.types-divider-vertical-top {
+    height: 450px;
     width: 2px;
     background: #A98EE9;
     margin: 0; 
-    align-self: center; 
+    align-self: top; 
     opacity: 1; 
+}
+
+.types-divider-vertical-bottom {
+    width: 2px;
+    height: 600px;
+    background: #A98EE9;
+    margin: 0 auto;
+    display: block;
+    opacity: 1;
+}
+
+.nrem-subetapas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* Footer Teaser */
@@ -919,7 +1013,12 @@ body {
         gap: var(--spacing-2xl);
     }
     .rem-column, .nrem-column { align-items: center; text-align: center; }
-    .types-divider-vertical { height: 100px; align-self: center; } /* Barra corta en mobile */
+    .types-divider-vertical-top,
+    .types-divider-vertical-bottom { 
+        height: 100px; 
+        align-self: center; 
+        margin: var(--spacing-lg) auto;
+    }
     .conector-horizontal { display: none; } /* Oculta conectores */
     .types-title { font-size: 36px; }
 }
