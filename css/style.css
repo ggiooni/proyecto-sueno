@@ -790,91 +790,74 @@ body {
     width: 100%;
     text-align: center;
     z-index: 5;
-    padding: 40px 0px;  /* Ajustá este valor según necesites */
+    padding: 20px 0px;  /* Ajustá este valor según necesites */
+    margin-bottom: 70px;
 }
 
 .interactive-cta__text {
     display: inline-block;
     margin: 0;
     font-family: 'Optima nova LT Pro', 'Lato', sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     color: #DBD4B9;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    line-height: 1.8;
+    line-height: 1.5;
     opacity: 0.85;
 }
 .mini-barra-vertical {
-    height: 300px;
+    height: 500px;
     width: 2px;
+    background: #A98EE9;
     margin: 0 auto;
     display: block;
+    opacity: 1;
+    margin-bottom: -70px;
+    margin-top: -70px;
 }
-
-.etapa-wrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin: 0;
-    cursor: pointer;
-    transition: transform var(--transition-normal);
+ .etapa-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  gap: 20px;
 }
-
-.etapa-wrapper:hover { 
-    transform: scale(1.02); 
-}
-
-/* Etapas a la derecha (N1, N3) */
-.etapa-wrapper.align-right {
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-left: calc(50% + 20px);
-}
-
-/* Etapas a la izquierda (N2, REM) */
-.etapa-wrapper.align-left {
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    margin-right: calc(50% + 20px);
-}
-
-
 .etapa-icon {
-    width: 30px;
-    height: 30px;
-    margin: 0 var(--spacing-sm);
-    filter: drop-shadow(0 0 10px #9370DB); /* Glow Figma */
+  margin-left: -90px; /* Ajustá este valor según lo que necesites */
 }
 .etapa-star {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%); /* Exact horizontal center */
-  z-index: 1; /* Ensure it layers above if needed */
-  width: 40px; /* Size based on images; adjust */
-  height: 40px;
-  background: none; /* If button has bg, remove */
-  border: none; /* Clean button */
+  transform: translateX(-50%);
+  width: 70px;
+  height: 70px;
+  background: none;
+  border: none;
   cursor: pointer;
+  z-index: 10;
 }
-.etapa-star:hover {
-    transform: scale(1.1) rotate(15deg);
+.etapa-star {
+  transition: transform 0.3s ease;
 }
-
 .estrella-icon {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 0 8px rgba(169, 142, 233, 0.6));
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px rgba(169, 142, 233, 0.6));
+}
+.etapa-star:hover .estrella-icon {
+  transform: rotate(-8deg);
+  transition: transform 0.3s ease;
 }
 
 .etapa-label {
-    display: flex;
-    flex-direction: column; /* Mantener en columna */
-    align-items: flex-start; /* Alinear a la izquierda */
-    justify-content: center;
-    text-align: left;
-    margin-left: var(--spacing-sm);
-    gap: 2px; /* Espacio pequeño entre las dos líneas */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  color: #A98EE9;
 }
 .etapa-label-small {
     font-size: 28px;
@@ -893,7 +876,20 @@ body {
     line-height: 1;
     white-space: nowrap;
 }
-
+.n1-etapa .etapa-icon,
+.n3-etapa .etapa-icon {
+  transform: translateX(-150px); /* Alternativa a margin-left */
+}
+.n2-etapa .etapa-label,
+.rem-etapa .etapa-label {
+  margin-right: auto;
+  text-align: right;
+  transform: translateX(-80px);
+}
+.n2-etapa .etapa-icon,
+.rem-etapa .etapa-icon {
+  transform: translateX(150px); /* Ajustá según lo que veas en pantalla */
+}
 .icon-placeholder {
     width: 40px;
     height: 40px;
@@ -902,11 +898,6 @@ body {
     margin: 0 var(--spacing-xs);
     animation: pulse 2s infinite; /* Placeholder anim */
 }
-
-.anim-left { order: -1; } /* Izq para N1/N3 */
-.anim-right { order: 2; } /* Der para N2/REM */
-
-/* Toggles Descripciones */
 /* Toggles Descripciones */
 .descripcion-toggle {
     display: none;
@@ -1275,6 +1266,11 @@ body {
     opacity: 0.8;
     transform: translate(-50%, -50%) scale(1.05);
   }
+  
+}
+@keyframes starBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
 }
 
 .hero-section,
@@ -1284,6 +1280,7 @@ body {
 .night-evolution-section {
   animation: fadeIn 0.8s ease-out;
 }
+
 
 .portada-text,
 .portada-logo {

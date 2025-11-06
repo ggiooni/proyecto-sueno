@@ -49,7 +49,6 @@
             </nav>
         </div>
     </header>
-
     <!-- SECCIÓN PORTADA -->
     <section id="portada" class="portada-section">
         <div class="portada-container">
@@ -73,7 +72,6 @@
             </div>
         </div>
     </section>
-
     <!-- SECCIÓN 1: HERO - ¿POR QUÉ DORMIMOS? -->
     <section class="hero-section">
         <div class="container">
@@ -153,9 +151,6 @@
             </blockquote>
     </div>
 </section>
-
-<!-- SECCIÓN TIPOS DE SUEÑO (Integrada con Niveles - Diagrama Vertical Largo) -->
-
 <!-- SECCIÓN TIPOS DE SUEÑO (Integrada con Niveles - Diagrama Vertical Largo) -->
 <section id="tipos-sueno" class="sleep-types-integrated">
     <div class="container">
@@ -205,147 +200,88 @@
 
 <!-- 4. INTERACCIONES CON MINI-BARRAS Y GIFs -->
 <div class="nrem-subetapas">
-    <!-- Mini-barra 1 -->
-    <svg class="mini-barra-vertical" viewBox="0 0 2 100" preserveAspectRatio="none" aria-hidden="true">
-    <line x1="1" y1="0" x2="1" y2="100" stroke="#A98EE9" stroke-width="2" opacity="0.8"/>
-</svg>
 
-    <!-- N1: Somnolencia -->
-    <div class="etapa-wrapper n1-etapa align-right">
-        <img src="assets/images/sleep-types/ojo-lento.gif" alt="Ojo cerrándose N1" class="etapa-icon" aria-hidden="true">
-            <button class="etapa-star" data-target="desc-n1" aria-label="Revelar info N1">
-                <img src="assets/images/sleep-types/estrella-bottom.svg" alt="" class="estrella-icon">
-            </button>
-        <div class="etapa-label">
-            <span class="etapa-label-small">N1 (NREM)</span>
-            <span class="etapa-label-title">Somnolencia</span>
-        </div>
-            <div id="desc-n1" class="descripcion-toggle tooltip-right">
-                N1: Transición al sueño, ondas theta, fácil despertar. Duración: 1-7 min (~5% del sueño).
-            </div>
+  <!-- Etapa N1 -->
+    <svg class="mini-barra-vertical" viewBox="0 0 2 400" aria-hidden="true">
+    <line x1="1" y1="0" x2="1" y2="400" stroke="#A98EE9" stroke-width="2" opacity="0.8"/>
+    </svg>
+
+  <div class="etapa-wrapper n1-etapa">
+    <img src="assets/images/gift/N1.gif" alt="Ojo cerrándose N1" class="etapa-icon" aria-hidden="true">
+    <button class="etapa-star" data-target="desc-n1" aria-label="Revelar info N1">
+      <img src="assets/images/sleep-types/estrella-bottom.svg" alt="" class="estrella-icon">
+    </button>
+    <div class="etapa-label">
+      <span class="etapa-label-small">N1 (NREM)</span>
+      <span class="etapa-label-title">Somnolencia</span>
     </div>
-
-    <!-- Mini-barra 2 -->
-    <svg class="mini-barra-vertical" viewBox="0 0 2 100" preserveAspectRatio="none" aria-hidden="true">
-    <line x1="1" y1="0" x2="1" y2="100" stroke="#A98EE9" stroke-width="2" opacity="0.8"/>
-</svg>
-
-    <!-- N2: Sueño Ligero -->
-    <div class="etapa-wrapper n2-etapa align-left">
-      <img src="assets/images/sleep-types/onda-ligera.gif" alt="Ondas ligeras N2" class="etapa-icon" aria-hidden="true">
-        
-            <button class="etapa-star" data-target="desc-n1" aria-label="Revelar info N2">
-                <img src="assets/images/sleep-types/estrella-bottom.svg" alt="" class="estrella-icon">
-            </button>
-           
-        <span class="etapa-label">
-            <span class="etapa-label-small">N2 (NREM)</span>
-            <span class="etapa-label-title"> Sueño ligero</span>
-        </span>
-        <div id="desc-n2" class="descripcion-toggle tooltip-left">
-            N2: Ondas sigma, consolidación memoria, ~50% del sueño. Duración: 10-25 min.
-        </div>
+    <div id="desc-n1" class="descripcion-toggle tooltip-right">
+      N1: Transición al sueño, ondas theta, fácil despertar. Duración: 1-7 min (~5% del sueño).
     </div>
-
-    <!-- Mini-barra 3 -->
-    <svg class="mini-barra-vertical" viewBox="0 0 2 100" preserveAspectRatio="none" aria-hidden="true">
-    <line x1="1" y1="0" x2="1" y2="100" stroke="#A98EE9" stroke-width="2" opacity="0.8"/>
-</svg>
-
-    <!-- N3: Sueño Profundo -->
-    <div class="etapa-wrapper n3-etapa align-right">
-        <img src="assets/images/sleep-types/circulo-profundo.gif" alt="Círculo profundo N3" class="etapa-icon" aria-hidden="true">
-            <button class="etapa-star" data-target="desc-n1" aria-label="Revelar info N3">
-                    <img src="assets/images/sleep-types/estrella-bottom.svg" alt="" class="estrella-icon">
-            </button>
-        <span class="etapa-label">
-            <span class="etapa-label-small">N3 (NREM)</span>
-            <span class="etapa-label-title">Sueño profundo</span>
-        </span>
-        <div id="desc-n3" class="descripcion-toggle tooltip-right">
-            N3: Ondas delta lentas, reparación física, difícil despertar. Duración: 20-40 min (~20% del sueño).
-        </div>
-    </div>
-
-    <!-- Mini-barra 4 -->
-    <svg class="mini-barra-vertical" viewBox="0 0 2 100" preserveAspectRatio="none" aria-hidden="true">
-    <line x1="1" y1="0" x2="1" y2="100" stroke="#A98EE9" stroke-width="2" opacity="0.8"/>
-</svg>
-
-    <!-- Etapa REM con GIF -->
-    <div class="etapa-wrapper rem-etapa align-left">
-        <img src="assets/images/sleep-types/ojo-rapido.gif" alt="Ojo en movimiento REM" class="etapa-icon" aria-hidden="true">
-            <button class="etapa-star" data-target="desc-n1" aria-label="Revelar info REM">
-                    <img src="assets/images/sleep-types/estrella-bottom.svg" alt="" class="estrella-icon">
-            </button>
-        
-        <span class="etapa-label">
-            <span class="etapa-label-small">REM</span>
-            <span class="etapa-label-title">Etapa REM</span>
-        </span>
-        <div id="desc-rem" class="descripcion-toggle tooltip-left">
-            Descripción REM: Movimientos oculares, sueños vívidos, ~20-25% del sueño. Duración: 10-60 min.
-        </div>
-    </div>
-
-    <!-- Mini-barra 5 (final) -->
-    <svg class="mini-barra-vertical" viewBox="0 0 2 100" preserveAspectRatio="none" aria-hidden="true">
-    <line x1="1" y1="0" x2="1" y2="100" stroke="#A98EE9" stroke-width="2" opacity="0.8"/>
-</svg>
+  </div>        
+  <!-- Etapa N2 -->
+   <svg class="mini-barra-vertical" viewBox="0 0 2 400" aria-hidden="true">
+            <line x1="1" y1="0" x2="1" y2="400" stroke="#A98EE9" stroke-width="2" opacity="0.8"/>
+        </svg>
+  <div class="etapa-wrapper n2-etapa">
+  <div class="etapa-label">
+    <span class="etapa-label-small">N2 (NREM)</span>
+    <span class="etapa-label-title">Sueño ligero</span>
+  </div>
+  <button class="etapa-star" data-target="desc-n2" aria-label="Revelar info N2">
+    <img src="assets/images/sleep-types/estrella-bottom.svg" alt="" class="estrella-icon">
+  </button>
+  <img src="assets/images/gift/N2.gif" alt="Ondas ligeras N2" class="etapa-icon" aria-hidden="true">
+  <div id="desc-n2" class="descripcion-toggle tooltip-left">
+    N2: Ondas sigma, consolidación memoria, ~50% del sueño. Duración: 10-25 min.
+  </div>   
 </div>
-        <!-- 6. FOOTER CON INFO DE CICLOS -->
-        <div class="types-footer">
-            <p class="types-teaser">
-                Un ciclo dura aproximadamente 90 minutos.<br>
-                En una noche de 8 horas, entran alrededor de 5-6 ciclos.<br>
-                La proporción de REM aumenta progresivamente.
-            </p>
-        </div>
+<svg class="mini-barra-vertical" viewBox="0 0 2 400" aria-hidden="true">
+        <line x1="1" y1="0" x2="1" y2="400" stroke="#A98EE9" stroke-width="2" opacity="0.8"/>
+    </svg>
+
+  <!-- Etapa N3 -->
+    <svg class="mini-barra-vertical" viewBox="0 0 2 400" aria-hidden="true">
+        <line x1="1" y1="0" x2="1" y2="400" stroke="#A98EE9" stroke-width="2" opacity="0.8"/>
+    </svg>
+
+  <div class="etapa-wrapper n3-etapa">
+    <img src="assets/images/gift/N3.gif" alt="Círculo profundo N3" class="etapa-icon" aria-hidden="true">
+    <button class="etapa-star" data-target="desc-n3" aria-label="Revelar info N3">
+      <img src="assets/images/sleep-types/estrella-bottom.svg" alt="" class="estrella-icon">
+    </button>
+    <div class="etapa-label">
+      <span class="etapa-label-small">N3 (NREM)</span>
+      <span class="etapa-label-title">Sueño profundo</span>
     </div>
+    <div id="desc-n3" class="descripcion-toggle tooltip-right">
+      N3: Ondas delta lentas, reparación física, difícil despertar. Duración: 20-40 min (~20% del sueño).
+    </div>
+  </div>
+    <svg class="mini-barra-vertical" viewBox="0 0 2 400" aria-hidden="true">
+        <line x1="1" y1="0" x2="1" y2="400" stroke="#A98EE9" stroke-width="2" opacity="0.8"/>
+    </svg>
+  <!-- Etapa REM -->
+  <div class="etapa-wrapper rem-etapa">
+  <div class="etapa-label">
+    <span class="etapa-label-small">REM</span>
+    <span class="etapa-label-title">Etapa REM</span>
+  </div>
+  <button class="etapa-star" data-target="desc-rem" aria-label="Revelar info REM">
+    <img src="assets/images/sleep-types/estrella-bottom.svg" alt="" class="estrella-icon">
+  </button>
+  <img src="assets/images/gift/REM.gif" alt="Ojo en movimiento REM" class="etapa-icon" aria-hidden="true">
+  <div id="desc-rem" class="descripcion-toggle tooltip-left">
+    Descripción REM: Movimientos oculares, sueños vívidos, ~20-25% del sueño. Duración: 10-60 min.
+  </div>
+</div>
+    <svg class="mini-barra-vertical" viewBox="0 0 2 400" aria-hidden="true">
+        <line x1="1" y1="0" x2="1" y2="400" stroke="#A98EE9" stroke-width="2" opacity="0.8"/>
+    </svg>
+</div>
+</div>
 </section>
-    <!-- SECCIÓN 3: NIVELES DEL SUEÑO (Interactiva) -->
-    <section id="niveles-sueno" class="sleep-levels-section">
-        <div class="container">
-            <div class="sleep-levels-grid">
-                <article class="sleep-level" data-level="n1">
-                    <button class="sleep-level__star" aria-label="Revelar información sobre N1">
-                        <img src="assets/images/stars/n1-star.svg" alt="Estrella N1" class="star-img">
-                    </button>
-                    <span class="sleep-level__label">N1 (NREM)</span>
-                    <h4 class="sleep-level__title">Somnolencia</h4>
-                    <p class="sleep-level__duration" hidden>DURACIÓN: 1-7 MIN.</p>
-                </article>
-
-                <article class="sleep-level" data-level="n2">
-                    <button class="sleep-level__star" aria-label="Revelar información sobre N2">
-                        <img src="assets/images/stars/n2-star.svg" alt="Estrella N2" class="star-img">
-                    </button>
-                    <span class="sleep-level__label">N2 (NREM)</span>
-                    <h4 class="sleep-level__title">Sueño ligero</h4>
-                    <p class="sleep-level__duration" hidden>DURACIÓN: 10-25 MIN.</p>
-                </article>
-
-                <article class="sleep-level" data-level="n3">
-                    <button class="sleep-level__star" aria-label="Revelar información sobre N3">
-                        <img src="assets/images/stars/n3-star.svg" alt="Estrella N3" class="star-img">
-                    </button>
-                    <span class="sleep-level__label">N3 (NREM)</span>
-                    <h4 class="sleep-level__title">Sueño profundo</h4>
-                    <p class="sleep-level__duration" hidden>DURACIÓN: 20-40 MIN.</p>
-                </article>
-
-                <article class="sleep-level" data-level="rem">
-                    <button class="sleep-level__star" aria-label="Revelar información sobre REM">
-                        <img src="assets/images/stars/rem-star.svg" alt="Estrella REM" class="star-img">
-                    </button>
-                    <span class="sleep-level__label">REM</span>
-                    <h4 class="sleep-level__title">Etapa REM</h4>
-                    <p class="sleep-level__duration" hidden>DURACIÓN: 10-60 MIN.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
+ 
     <!-- SECCIÓN 4: CICLO DEL SUEÑO (Gráfico Circular) -->
     <section id="ciclo-sueno" class="sleep-cycle-section">
         <div class="container">
