@@ -373,3 +373,21 @@ window.addEventListener('error', (event) => {
 window.addEventListener('load', () => {
   console.log(`⚡ Página cargada en ${performance.now().toFixed(2)}ms`);
 });
+document.querySelectorAll('.etapa-star').forEach(star => {
+  star.addEventListener('click', () => {
+    const targetId = star.getAttribute('data-target');
+    const target = document.getElementById(targetId);
+
+    // Si ya está activo, lo ocultamos
+    if (target.classList.contains('active')) {
+      target.classList.remove('active');
+    } else {
+      // Ocultamos todos los demás
+      document.querySelectorAll('.descripcion-toggle').forEach(el => {
+        el.classList.remove('active');
+      });
+      // Mostramos el correspondiente
+      target.classList.add('active');
+    }
+  });
+});
